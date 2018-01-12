@@ -3,7 +3,7 @@
 
 use horrorshow::prelude::*;
 
-pub fn layout(title: &str, content: String) -> String {
+pub fn layout(title: String, content: String) -> String {
     return html! {
         : ::horrorshow::helper::doctype::HTML;
         html {
@@ -19,7 +19,7 @@ pub fn layout(title: &str, content: String) -> String {
 
 pub fn landing(coins: Vec<&str>) -> String {
     layout(
-        "coinref.io",
+        format!("conref.io"),
         html! {
             a(href="/") { img(src="/static/logo.png", height="31px") }
             @ for coin in coins {
@@ -36,7 +36,7 @@ pub mod coin {
 
     pub fn show(coin: ::models::Coin) -> String {
         ::views::layout(
-            "conref.io - show",
+            format!("conref.io - {}", coin.name),
             html! {
                 a(href="/") { img(src="/static/logo.png", height="31px") }
                 h1 {: coin.name }
