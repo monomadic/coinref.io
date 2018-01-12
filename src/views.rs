@@ -17,11 +17,20 @@ pub fn layout(title: String, content: String) -> String {
     }.into_string().unwrap()
 }
 
+pub fn header() -> String {
+    return html! {
+        header {
+            a(href="/") { img(src="/static/logo.png", height="31px") }
+            : "crypto research made simple"
+        }
+    }.into_string().unwrap()
+}
+
 pub fn landing(coins: Vec<&str>) -> String {
     layout(
         format!("conref.io"),
         html! {
-            a(href="/") { img(src="/static/logo.png", height="31px") }
+            : Raw(::views::header());
             @ for coin in coins {
                 li {
                     a(href=coin) {: coin}
@@ -38,9 +47,15 @@ pub mod coin {
         ::views::layout(
             format!("conref.io - {}", coin.name),
             html! {
-                a(href="/") { img(src="/static/logo.png", height="31px") }
-                h1 {: coin.name }
-                img(src=format!("/static/icons/{}.png", coin.image));
+                : Raw(::views::header());
+                aside {
+                    img(src=format!("/static/icons/{}.png", coin.image));
+                    h1 {: coin.name }
+                    div(class="tag") {: coin.tag }
+                    div(class="website") {
+                        a(href=coin.website.clone()) {: coin.website }
+                    }
+                }
                 article {
                     h2 {: "Summary" }
                     p {: coin.summary }

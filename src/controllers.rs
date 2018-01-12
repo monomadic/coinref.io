@@ -8,7 +8,7 @@ pub fn landing(req: &mut Request) -> IronResult<Response> {
     Ok(Response::with((
         ContentType::html().0,
         status::Ok,
-        ::views::landing(vec!["eth"])
+        ::views::landing(vec!["ETH", "XRB"])
     )))
 }
 
@@ -24,10 +24,11 @@ pub mod coin {
         // println!("{:?}", req.extensions.get::<router::Router>());
 
         let coin = ::models::Coin {
-            name:  coin_name.to_string(),
+            name:  "Raiblocks".to_string(),
             tag: coin_name.to_string(),
             image: coin_name.to_string(),
             summary: "blah".to_string(),
+            website: "https://raiblocks.net".to_string(),
         };
 
         Ok(Response::with((

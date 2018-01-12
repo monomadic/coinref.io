@@ -4,4 +4,5 @@ pub struct Coin {
     pub tag: String,
     pub image: String,
     pub summary: String,
+    pub website: String,
 }
