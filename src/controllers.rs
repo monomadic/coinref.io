@@ -21,7 +21,6 @@ pub mod coin {
         println!("\nGET {:?}", req);
 
         let coin_name = req.extensions.get::<::router::Router>().unwrap().find("coin").unwrap();
-        // println!("{:?}", req.extensions.get::<router::Router>());
 
         let coin = ::models::Coin {
             name:  "Raiblocks".to_string(),
@@ -29,6 +28,14 @@ pub mod coin {
             image: coin_name.to_string(),
             summary: "blah".to_string(),
             website: "https://raiblocks.net".to_string(),
+            news: vec![
+                ::models::NewsItem {
+                    source: "reddit".to_string(),
+                    link: "http://reddit.com/".to_string(),
+                    link_name: "man does thing".to_string(),
+                    time_ago: "2 days ago".to_string(),
+                }
+            ],
         };
 
         Ok(Response::with((

@@ -59,6 +59,12 @@ pub mod coin {
                 article {
                     h2 {: "Summary" }
                     p {: coin.summary }
+                    h2 {: "News" }
+                    @ for news in coin.news {
+                        li {
+                            a(href=news.link) {: news.link_name }
+                        }
+                    }
                 }
             }.into_string().unwrap()
         )
