@@ -1,0 +1,26 @@
+[XRB]
+    name    = "RaiBlocks"
+    tag     = "XRB"
+    website = "https://raiblocks.net"
+    [[XRB.news]]
+        source      = "twitter"
+        link        = "http://t"
+        link_name   = "sdfdfs"
+        time_ago    = "2018-05-27T07:32:00Z"
+    [[XRB.news]]
+        source      = "twitter"
+        link        = "http://t"
+        link_name   = "sdfdfs"
+        time_ago    = "2018-05-27T07:32:00Z"
+
+[ETH]
+    name    = "Etherium"
+    tag     = "ETH"
+    website = "dkfjlsdfsdfkdjf"
+    news    = []
+
+[BTC]
+    name    = "Bitcoin"
+    tag     = "BTC"
+    website = "dkfjlsdfsdfkdjf"
+    news    = []

@@ -10,3 +10,6 @@ staticfile = "*"
 mount = "*"
 templar = { path = "../orko/templar/" }
 horrorshow = "*"
+toml = "*"
+serde = "*"
+serde_derive = "1.0"

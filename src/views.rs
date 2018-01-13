@@ -21,19 +21,19 @@ pub fn header() -> String {
     return html! {
         header {
             a(href="/") { img(src="/static/logo.png", height="31px") }
-            : "crypto research made simple"
+            : "crypto research network"
         }
     }.into_string().unwrap()
 }
 
-pub fn landing(coins: Vec<&str>) -> String {
+pub fn landing(coins: ::std::collections::HashMap<String, ::models::Coin>) -> String {
     layout(
         format!("conref.io"),
         html! {
             : Raw(::views::header());
-            @ for coin in coins {
+            @ for (tag, coin) in coins {
                 li {
-                    a(href=coin) {: coin}
+                    a(href=tag.clone()) {: tag}
                 }
             }
         }.into_string().unwrap()
@@ -49,20 +49,20 @@ pub mod coin {
             html! {
                 : Raw(::views::header());
                 aside {
-                    img(src=format!("/static/icons/{}.png", coin.image));
+                    img(src=format!("/static/icons/{}.png", coin.tag));
                     h1 {: coin.name }
-                    div(class="tag") {: coin.tag }
+                    div(class="tag") {: coin.tag.clone() }
                     div(class="website") {
                         a(href=coin.website.clone()) {: coin.website }
                     }
                 }
                 article {
-                    h2 {: "Summary" }
-                    p {: coin.summary }
+                    : Raw(::render_templar::render_template(&format!("data/{}.templar", coin.tag)),);
                     h2 {: "News" }
                     @ for news in coin.news {
                         li {
-                            a(href=news.link) {: news.link_name }
+                            : news.source;
+                            a(href=news.link, target="_newTab") {: news.link_name }
                         }
                     }
                 }
