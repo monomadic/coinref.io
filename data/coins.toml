@@ -24,3 +24,9 @@
     tag     = "BTC"
     website = "dkfjlsdfsdfkdjf"
     news    = []
+
+[SPHTX]
+    name    = "SophiaTX"
+    tag     = "SPHTX"
+    website = "https://www.sophiatx.com"
+    news    = []

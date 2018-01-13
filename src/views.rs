@@ -31,9 +31,13 @@ pub fn landing(coins: ::std::collections::HashMap<String, ::models::Coin>) -> St
         format!("conref.io"),
         html! {
             : Raw(::views::header());
-            @ for (tag, coin) in coins {
-                li {
-                    a(href=tag.clone()) {: tag}
+            div(class="flex-container") {
+                @ for (tag, coin) in coins {
+                    a(href=tag.clone(), class="coin-summary") {
+                        img(src=format!("/static/icons/{}.png", coin.tag));
+                        div(class="name") {: coin.name }
+                        div(class="tag") {: tag }
+                    }
                 }
             }
         }.into_string().unwrap()
@@ -53,7 +57,7 @@ pub mod coin {
                     h1 {: coin.name }
                     div(class="tag") {: coin.tag.clone() }
                     div(class="website") {
-                        a(href=coin.website.clone()) {: coin.website }
+                        a(href=coin.website.clone(), target="_newTab") {: coin.website }
                     }
                 }
                 article {

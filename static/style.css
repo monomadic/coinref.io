@@ -65,3 +65,18 @@ li.con {
 
 li.pro, li.con {
 }
+
+.flex-container {
+    display: flex;
+}
+
+.coin-summary {
+    width: 10%;
+    float: left;
+    padding: 10px;
+}
+
+.coin-summary img {
+    max-width: 100px;
+    max-height: 100px;
+}

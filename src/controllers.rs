@@ -15,10 +15,10 @@ pub fn landing(req: &mut Request) -> IronResult<Response> {
 }
 
 pub mod coin {
-    use std::collections::HashMap;
+    // use std::collections::HashMap;
     use iron::prelude::*;
     use iron::headers::ContentType;
-    use iron::{ status, Handler };
+    use iron::{ status };
 
     // pub struct MessageHandler {
     //     pub coindb: HashMap<String, ::models::Coin>,
