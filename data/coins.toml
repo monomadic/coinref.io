@@ -37,3 +37,10 @@
     tag     = "EDO"
     website = "https://eidoo.io"
     news    = []
+
+[ETC]
+    name    = "Etherium Classic"
+    tag     = "ETC"
+    website = "https://ethereumclassic.github.io/"
+    # twitter = "eth_classic"
+    news    = []
