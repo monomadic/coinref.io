@@ -56,14 +56,22 @@ a:link, a:visited {
 }
 
 li.pro {
-    list-style-image: url('pro.png');
+    background: url('pro.png') no-repeat left;
+    background-size: 20px 20px;
+    padding-left: 30px;
+    line-height: 30px;
 }
 
 li.con {
-    list-style-image: url('con.png');
+    background: url('con.png') no-repeat left;
+    background-size: 20px 20px;
+    padding-left: 30px;
+    line-height: 30px;
 }
 
-li.pro, li.con {
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 .flex-container {

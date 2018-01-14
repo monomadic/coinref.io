@@ -5,8 +5,9 @@
     [[XRB.news]]
         source      = "twitter"
         link        = "http://t"
-        link_name   = "sdfdfs"
+        link_name   = "RaiExchange opening delayed"
         time_ago    = "2018-05-27T07:32:00Z"
+        # comments    = ""
     [[XRB.news]]
         source      = "twitter"
         link        = "http://t"
@@ -28,5 +29,11 @@
 [SPHTX]
     name    = "SophiaTX"
     tag     = "SPHTX"
-    website = "https://www.sophiatx.com"
+    website = "https://sophiatx.com"
+    news    = []
+
+[EDO]
+    name    = "Eidoo"
+    tag     = "EDO"
+    website = "https://eidoo.io"
     news    = []
