@@ -56,7 +56,7 @@ pub mod coin {
             html! {
                 : Raw(::views::header());
                 aside {
-                    img(src=format!("/static/icons/{}.png", coin.tag));
+                    img(src=format!("/static/icons/{}.png", coin.tag), class="logo");
                     h1 {: coin.name }
                     div(class="tag subheading") {: coin.tag.clone() }
                     div(class="website") {
@@ -65,8 +65,8 @@ pub mod coin {
                     div(class="media_links") {
                         @ if let Some(twitter) = coin.twitter.clone() {
                             a(href=format!("http://twitter.com/{}", twitter), target="_newTab", class="pill-link twitter") {
-                                img(src="/static/twitter.png")
-                                {: format!("@{}", twitter) }
+                                img(src="/static/twitter.png");
+                                span {: format!("@{}", twitter) }
                             }
                         }
                     }

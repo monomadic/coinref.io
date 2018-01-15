@@ -1,6 +1,9 @@
 p Currency designed to compete directly with bitcoin and ripple. 7000+ transactions per second, zero fees.
 p It uses a DAG (directed acyclic graph) instead of a blockchain.
 
+.tag-list
+    .tag decentralised
+
 h2 Closest Competitors
 ul
     li IOTA - Cons: Tangle. Pros : Data for IOT

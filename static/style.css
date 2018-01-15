@@ -27,11 +27,12 @@ aside {
     overflow: hidden;
 }
 
-aside img {
+aside img.logo {
     width: 90px;
     float: left;
     margin-right: 20px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 article {
@@ -49,7 +50,7 @@ h1 {
 }
 
 h2 {
-    font-size: 18px;
+    font-size: 16px;
 }
 
 p {
@@ -107,10 +108,15 @@ ul {
     margin: 5px 0;
 }
 
+.pill-link {
+    line-height: 20px;
+}
+
 .pill-link img {
     height: 17px;
     width: 20px;
-    margin-top: 1px;
+    /*margin-top: 15px;*/
+    margin-right: 10px;
 }
 
 .pill-link.twitter {

@@ -2,6 +2,7 @@
     name    = "RaiBlocks"
     tag     = "XRB"
     website = "https://raiblocks.net"
+    twitter = "raiblocks"
     [[XRB.news]]
         source      = "twitter"
         link        = "http://t"
