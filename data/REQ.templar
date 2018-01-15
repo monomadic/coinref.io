@@ -1,0 +1,6 @@
+p Payment system, designed to compete with services like <a href="https://paypal.com" target="_newTab">PayPal</a>. Users can request payments across any currency.
+
+h2 Vitals
+ul
+    li.pro decentralised
+    li.pro built on top of etherium

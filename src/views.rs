@@ -11,6 +11,7 @@ pub fn layout(title: String, content: String) -> String {
                 title {: title }
                 link(rel="stylesheet", type="text/css", href="/static/style.css", media="all");
                 link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto+Mono");
+                link(rel="icon", type="image/png", href="/static/favicon.png");
             }
             body {: Raw(content) }
         }
@@ -72,7 +73,7 @@ pub mod coin {
                 }
                 article {
                     : Raw(::render_templar::render_template(&format!("data/{}.templar", coin.tag)),);
-                    h2 {: "News" }
+                    h2 {: "Updates" }
                     @ for news in coin.news {
                         li {
                             : news.source;

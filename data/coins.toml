@@ -44,3 +44,10 @@
     website = "https://ethereumclassic.github.io/"
     twitter = "eth_classic"
     news    = []
+
+[REQ]
+    name    = "Request Network"
+    tag     = "REQ"
+    website = "https://request.network"
+    twitter = "requestnetwork"
+    news    = []

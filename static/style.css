@@ -22,7 +22,7 @@ header img {
 }
 
 aside {
-    width: 30%;
+    width: 40%;
     float: left;
     overflow: hidden;
 }
@@ -30,17 +30,18 @@ aside {
 aside img {
     width: 90px;
     float: left;
-    margin-right: 10px;
+    margin-right: 20px;
+    margin-top: 20px;
 }
 
 article {
     float: left;
-    width: 70%;
+    width: 60%;
 }
 
 h1, h2, h3, h4 {
     line-height: 20px;
-    margin-top: 0;
+    /*margin-top: 0;*/
 }
 
 h1 {
@@ -97,7 +98,7 @@ ul {
     margin-top: -10px;
 }
 
-.pill-link, .pill-link:visited {
+.pill-link, .pill-link:visited, .pill-link:link {
     text-decoration: none;
     color: white;
     padding: 5px 20px;

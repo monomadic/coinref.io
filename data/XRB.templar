@@ -1,6 +1,17 @@
-h2 Summary
 p Currency designed to compete directly with bitcoin and ripple. 7000+ transactions per second, zero fees.
-p Like REQ, It uses a DNG over a regular blockchain.
+p It uses a DAG (directed acyclic graph) instead of a blockchain.
+
+h2 Closest Competitors
+ul
+    li IOTA - Cons: Tangle. Pros : Data for IOT
+    li ByteBall - Cons: Tangle. Pros : Contracts and other payment options.
+    li Universa - Pros: Block lattice, smart contracts. Cons: fees, centralized company
+    li Quick transaction blockchain space:
+    li DASH: Heavily Centralized(now that DASH is $700+), fees.
+    li Stellar Lumens: Centralized, fees.
+    li EOS: Heavily Centralized
+    li Ethereum: If they have sharding, they can become more competitive, especially if they eventually implement a third layer of sharding.
+    li NEO: Already has sharding. Kinda still centralized though. I think this is the blockchain to rule them all, it will just be used for heavily regulated industries. I think RaiBlocks will be a massive player in the unregulated transactions space.
 
 h2 Vitals
 ul
