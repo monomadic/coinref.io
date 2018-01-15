@@ -6,6 +6,7 @@ pub struct Coin {
     pub tag: String,
     pub website: String,
     pub news: Vec<NewsItem>,
+    pub twitter: Option<String>,
 }
 
 #[derive(Deserialize, Debug, Clone)]

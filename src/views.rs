@@ -32,6 +32,8 @@ pub fn landing(coins: ::std::collections::HashMap<String, ::models::Coin>) -> St
         html! {
             : Raw(::views::header());
             div(class="flex-container") {
+                h2 {: "top coins" }
+                br;
                 @ for (tag, coin) in coins {
                     a(href=tag.clone(), class="coin-summary") {
                         img(src=format!("/static/icons/{}.png", coin.tag));
@@ -55,9 +57,17 @@ pub mod coin {
                 aside {
                     img(src=format!("/static/icons/{}.png", coin.tag));
                     h1 {: coin.name }
-                    div(class="tag") {: coin.tag.clone() }
+                    div(class="tag subheading") {: coin.tag.clone() }
                     div(class="website") {
                         a(href=coin.website.clone(), target="_newTab") {: coin.website }
+                    }
+                    div(class="media_links") {
+                        @ if let Some(twitter) = coin.twitter.clone() {
+                            a(href=format!("http://twitter.com/{}", twitter), target="_newTab", class="pill-link twitter") {
+                                img(src="/static/twitter.png")
+                                {: format!("@{}", twitter) }
+                            }
+                        }
                     }
                 }
                 article {

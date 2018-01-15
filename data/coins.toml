@@ -23,7 +23,7 @@
 [BTC]
     name    = "Bitcoin"
     tag     = "BTC"
-    website = "dkfjlsdfsdfkdjf"
+    website = "https://bitcoin.org"
     news    = []
 
 [SPHTX]
@@ -42,5 +42,5 @@
     name    = "Etherium Classic"
     tag     = "ETC"
     website = "https://ethereumclassic.github.io/"
-    # twitter = "eth_classic"
+    twitter = "eth_classic"
     news    = []
