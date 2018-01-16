@@ -32,9 +32,8 @@ pub fn landing(coins: ::std::collections::HashMap<String, ::models::Coin>) -> St
         format!("conref.io"),
         html! {
             : Raw(::views::header());
-            div(class="flex-container") {
-                h2 {: "top coins" }
-                br;
+            h2 {: "top coins" }
+            div(class="coin-list") {
                 @ for (tag, coin) in coins {
                     a(href=tag.clone(), class="coin-summary") {
                         img(src=format!("/static/icons/{}.png", coin.tag));
