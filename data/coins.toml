@@ -52,3 +52,10 @@
     website = "https://request.network"
     twitter = "requestnetwork"
     news    = []
+
+[COB]
+    name    = "Cobinhood"
+    tag     = "COB"
+    website = "https://cobinhood.com"
+    twitter = "cobinhood"
+    news    = []
