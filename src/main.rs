@@ -2,21 +2,8 @@ extern crate iron;
 extern crate router;
 extern crate staticfile;
 extern crate mount;
-extern crate templar;
 
-#[macro_use]
-extern crate serde_derive;
-extern crate toml;
-
-#[macro_use]
-extern crate horrorshow;
-
-use iron::prelude::*;
-
-mod models;
-mod views;
-mod controllers;
-mod render_templar;
+extern crate coinref;
 
 fn main() {
     let mut router = router::Router::new();
@@ -25,9 +12,9 @@ fn main() {
     // let coindb = ::models::all();
 
     // router
-    router.get("/", controllers::landing, "index");
+    router.get("/", coinref::controllers::landing, "index");
     // router.get("/:coin", controllers::coin::MessageHandler{ coindb: coindb }, "coin");
-    router.get("/:coin", controllers::coin::show, "coin");
+    router.get("/:coin", coinref::controllers::coin::show, "coin");
     mount.mount("/", router);
 
     // static mount
@@ -36,7 +23,7 @@ fn main() {
 
     // launch server
     println!("launching server at http://localhost:9000/");
-    Iron::new(mount).http("localhost:9000").unwrap();
+    iron::Iron::new(mount).http("localhost:9000").unwrap();
     println!("done.");
 
     // fn show(req: &mut Request) -> IronResult<Response> {
