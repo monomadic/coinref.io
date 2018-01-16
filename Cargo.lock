@@ -38,10 +38,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "fetch"
-version = "0.1.0"
-
-[[package]]
 name = "fuchsia-zircon"
 version = "0.3.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -345,6 +341,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "unicode-xid 0.0.4 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "tasks"
+version = "0.1.0"
 
 [[package]]
 name = "templar"

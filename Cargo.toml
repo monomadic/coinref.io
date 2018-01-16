@@ -1,5 +1,5 @@
 [workspace]
-members = ["fetch"]
+members = ["tasks"]
 
 [package]
 name = "coinref"
@@ -25,4 +25,8 @@ doc = false
 
 [[bin]]
 name = "coinref"
+doc = false
+
+[[bin]]
+name = "tasks"
 doc = false

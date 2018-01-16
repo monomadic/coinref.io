@@ -1,8 +1,8 @@
 [package]
-name = "fetch"
+name = "tasks"
 version = "0.1.0"
 authors = ["Rob Saunders <rob@wearebrandnew.com>"]
 
 [[bin]]
-name = "fetch"
+name = "tasks"
 doc = false
