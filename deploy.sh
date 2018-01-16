@@ -1,5 +1,5 @@
 #!/bin/sh
 git pull
 cargo build --release --all
-./build/release/tasks
+./target/release/tasks
 service supervisor restart && service nginx restart
