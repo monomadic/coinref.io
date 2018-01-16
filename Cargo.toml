@@ -26,7 +26,3 @@ doc = false
 [[bin]]
 name = "coinref"
 doc = false
-
-[[bin]]
-name = "tasks"
-doc = false

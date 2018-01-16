@@ -1,3 +1,3 @@
 fn main() {
-    println!("fetgching");
+    println!("fetching market cap data...");
 }
