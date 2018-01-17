@@ -1,17 +1,17 @@
 use std::collections::HashMap;
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Clone, Queryable)]
 pub struct Coin {
     pub name: String,
-    pub tag: String,
+    pub symbol: String,
     pub website: String,
     pub news: Vec<NewsItem>,
     pub twitter: Option<String>,
 }
 
-#[derive(Deserialize, Debug, Clone)]
+#[derive(Deserialize, Debug, Clone, Queryable)]
 pub struct NewsItem {
-    pub source: String,
+    pub source: String  ,
     pub link: String,
     pub link_name: String,
     pub time_ago: String,

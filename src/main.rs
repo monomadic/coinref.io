@@ -11,6 +11,10 @@ fn main() {
 
     // let coindb = ::models::all();
 
+    use coinref::schema::coins::dsl::*;
+    let connection = coinref::establish_connection();
+    let results = coins.limit(5).load::<Coin>(&connection).expect("Error loading posts");
+
     // router
     router.get("/", coinref::controllers::landing, "index");
     // router.get("/:coin", controllers::coin::MessageHandler{ coindb: coindb }, "coin");

@@ -16,6 +16,7 @@ horrorshow = "*"
 toml = "*"
 serde = "*"
 serde_derive = "1.0"
+diesel = { version = "1.0.0", features = ["sqlite"] }
 
 # [target.x86_64-unknown-linux-musl]
 # linker = "x86_64-linux-musl-gcc"

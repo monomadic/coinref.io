@@ -29,14 +29,14 @@ pub fn header() -> String {
 
 pub fn landing(coins: ::std::collections::HashMap<String, ::models::Coin>) -> String {
     layout(
-        format!("conref.io"),
+        format!("coinref.io"),
         html! {
             : Raw(::views::header());
             h2 {: "top coins" }
             div(class="coin-list") {
                 @ for (tag, coin) in coins {
                     a(href=tag.clone(), class="coin-summary") {
-                        img(src=format!("/static/icons/{}.png", coin.tag));
+                        img(src=format!("/static/icons/{}.png", coin.symbol));
                         div(class="name") {: coin.name }
                         div(class="tag") {: tag }
                     }
@@ -51,13 +51,13 @@ pub mod coin {
 
     pub fn show(coin: ::models::Coin) -> String {
         ::views::layout(
-            format!("conref.io - {}", coin.name),
+            format!("coinref.io - {}", coin.name),
             html! {
                 : Raw(::views::header());
                 aside {
-                    img(src=format!("/static/icons/{}.png", coin.tag), class="logo");
+                    img(src=format!("/static/icons/{}.png", coin.symbol), class="logo");
                     h1 {: coin.name }
-                    div(class="tag subheading") {: coin.tag.clone() }
+                    div(class="tag subheading") {: coin.symbol.clone() }
                     div(class="website") {
                         a(href=coin.website.clone(), target="_newTab") {: coin.website }
                     }
@@ -71,7 +71,7 @@ pub mod coin {
                     }
                 }
                 article {
-                    : Raw(::render_templar::render_template(&format!("data/{}.templar", coin.tag)),);
+                    : Raw(::render_templar::render_template(&format!("data/{}.templar", coin.symbol)),);
                     h2 {: "Updates" }
                     @ for news in coin.news {
                         li {
