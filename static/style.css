@@ -84,26 +84,19 @@ ul {
     display: flex;
 }
 
-.coin-summary {
-    width: 10%;
-    float: left;
-    padding: 10px;
-}
-
-.coin-summary img {
-    max-width: 100px;
-    max-height: 100px;
-}
-
 .subheading {
     margin-top: -10px;
 }
 
-.coin-summary:link, .coin-summary:visited { text-decoration: none; color: black; }
-.coin-summary:link .symbol, .coin-summary:visited .symbol { color: #999; }
-.coin-summary:hover { outline: 1px solid #00FF90; }
-.coin-summary { width: 100px; }
-.coin-summary img { width: 50px; }
+.coin-list, .coin-list tr { width: 100%; border-collapse: collapse; cursor: pointer; }
+.coin-list td { padding: 10px; }
+.coin-list a:link, .coin-list a:visited { text-decoration: none; color: black; }
+.coin-list a:link .symbol, .coin-list a:visited .symbol { color: #999; }
+.coin-list tr:hover { outline: 1px solid #00FF90; background-color: #E9FCF4; }
+.coin-list { display: block; }
+.coin-list .icon { width: 35px; }
+.coin-list .name { width: 100%; }
+.coin-list img { max-width: 30px; max-height: 30px; float: left; }
 
 .pill-link, .pill-link:visited, .pill-link:link {
     text-decoration: none;

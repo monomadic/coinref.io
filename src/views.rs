@@ -33,12 +33,15 @@ pub fn landing(coins: Vec<::models::Coin>) -> String {
         html! {
             : Raw(::views::header());
             h2 {: "top coins" }
-            div(class="coin-list") {
+            table(class="coin-list") {
                 @ for coin in coins {
-                    a(href=coin.symbol.clone(), class="coin-summary") {
-                        img(src=format!("/static/icons/{}.png", coin.symbol));
-                        div(class="name") {: coin.name }
-                        div(class="symbol") {: coin.symbol }
+                    tr(onclick=format!("location.href='/{}'", coin.symbol.clone())) {
+                        td(class="icon") {
+                            img(src=format!("/static/icons/{}.png", coin.symbol));
+                        }
+                        td(class="name") {
+                            a(href=coin.symbol.clone(), class="coin-summary") {: coin.name }
+                        }
                     }
                 }
             }
