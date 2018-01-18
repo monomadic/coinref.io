@@ -122,3 +122,10 @@ ul {
 .pill-link.twitter {
     background-color: #00C8EE;
 }
+
+.tag {
+    display: inline-block;
+    background-color: #00FF90;
+    padding: 2px 10px;
+    border-radius: 4px;
+}

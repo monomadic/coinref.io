@@ -17,7 +17,7 @@ extern crate horrorshow;
 // use iron::prelude::*;
 
 pub mod schema;
-mod models;
+pub mod models;
 mod views;
 pub mod controllers;
 mod render_templar;

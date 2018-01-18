@@ -27,18 +27,18 @@ pub fn header() -> String {
     }.into_string().unwrap()
 }
 
-pub fn landing(coins: ::std::collections::HashMap<String, ::models::Coin>) -> String {
+pub fn landing(coins: Vec<::models::Coin>) -> String {
     layout(
         format!("coinref.io"),
         html! {
             : Raw(::views::header());
             h2 {: "top coins" }
             div(class="coin-list") {
-                @ for (tag, coin) in coins {
-                    a(href=tag.clone(), class="coin-summary") {
+                @ for coin in coins {
+                    a(href=coin.symbol.clone(), class="coin-summary") {
                         img(src=format!("/static/icons/{}.png", coin.symbol));
                         div(class="name") {: coin.name }
-                        div(class="tag") {: tag }
+                        div(class="symbol") {: coin.symbol }
                     }
                 }
             }
@@ -57,13 +57,13 @@ pub mod coin {
                 aside {
                     img(src=format!("/static/icons/{}.png", coin.symbol), class="logo");
                     h1 {: coin.name }
-                    div(class="tag subheading") {: coin.symbol.clone() }
+                    div(class="symbol subheading") {: coin.symbol.clone() }
                     div(class="website") {
-                        a(href=coin.website.clone(), target="_newTab") {: coin.website }
+                        a(href=format!("https://{}", coin.website.clone()), target="_newTab") {: coin.website }
                     }
                     div(class="media_links") {
                         @ if let Some(twitter) = coin.twitter.clone() {
-                            a(href=format!("http://twitter.com/{}", twitter), target="_newTab", class="pill-link twitter") {
+                            a(href=format!("https://twitter.com/{}", twitter), target="_newTab", class="pill-link twitter") {
                                 img(src="/static/twitter.png");
                                 span {: format!("@{}", twitter) }
                             }
@@ -73,14 +73,14 @@ pub mod coin {
                 article {
                     : Raw(::render_templar::render_template(&format!("data/{}.templar", coin.symbol)),);
                     h2 {: "Updates" }
-                    @ for news in coin.news {
-                        li {
-                            : news.source;
-                            a(href=news.link, target="_newTab") {: news.link_name }
-                        }
-                    }
+                    // @ for news in coin.news {
+                    //     li {
+                    //         : news.source;
+                    //         a(href=news.link, target="_newTab") {: news.link_name }
+                    //     }
+                    // }
                 }
-            }.into_string().unwrap()
+            }.into_string().expect("show() render")
         )
     }
 }

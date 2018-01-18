@@ -2,15 +2,25 @@ use iron::prelude::*;
 use iron::status;
 use iron::headers::ContentType;
 
-pub fn landing(req: &mut Request) -> IronResult<Response> {
-    println!("\nGET {:?}", req);
-
-    let coindb = ::models::all();
+pub fn landing(_req: &mut Request) -> IronResult<Response> {
+    let connection = ::establish_connection();
+    let coins = ::models::all_coins(connection);
 
     Ok(Response::with((
         ContentType::html().0,
         status::Ok,
-        ::views::landing(coindb)
+        ::views::landing(coins)
+    )))
+}
+
+pub fn search(_req: &mut Request) -> IronResult<Response> {
+    let connection = ::establish_connection();
+    let coins = ::models::all_coins(connection);
+
+    Ok(Response::with((
+        ContentType::html().0,
+        status::Ok,
+        ::views::landing(coins)
     )))
 }
 
@@ -41,10 +51,13 @@ pub mod coin {
     pub fn show(req: &mut Request) -> IronResult<Response> {
         println!("\nGET {:?}", req);
 
-        let coin_name = req.extensions.get::<::router::Router>().unwrap().find("coin").unwrap();
+        let coin_symbol = req.extensions.get::<::router::Router>().unwrap().find("coin").unwrap();
 
-        let coindb = ::models::all();
-        let coin = coindb.get(coin_name).unwrap();
+        let connection = ::establish_connection();
+        let coin = ::models::get_coin(connection, coin_symbol);
+
+        // let coindb = ::models::all();
+        // let coin = coindb.get(coin_symbol).unwrap();
 
         // let coin = ::models::Coin {
         //     name:  "Raiblocks".to_string(),
@@ -65,7 +78,7 @@ pub mod coin {
         Ok(Response::with((
             ContentType::html().0,
             status::Ok,
-            ::views::coin::show(coin.clone())
+            ::views::coin::show(coin).to_string()
         )))
     }
 }

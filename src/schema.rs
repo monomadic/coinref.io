@@ -1,6 +1,13 @@
 table! {
+    coin_tags (CoinId, TagId) {
+        CoinId -> Integer,
+        TagId -> Integer,
+    }
+}
+
+table! {
     coins (id) {
-        id -> Nullable<Integer>,
+        id -> Integer,
         name -> Text,
         symbol -> Text,
         website -> Text,
@@ -12,6 +19,18 @@ table! {
         facebook -> Nullable<Text>,
         market_cap -> Integer,
         page -> Text,
-        published -> Bool,
     }
 }
+
+table! {
+    tags (id) {
+        id -> Integer,
+        name -> Text,
+    }
+}
+
+allow_tables_to_appear_in_same_query!(
+    coin_tags,
+    coins,
+    tags,
+);

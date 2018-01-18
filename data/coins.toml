@@ -1,20 +1,3 @@
-[XRB]
-    name    = "RaiBlocks"
-    tag     = "XRB"
-    website = "https://raiblocks.net"
-    twitter = "raiblocks"
-    [[XRB.news]]
-        source      = "twitter"
-        link        = "http://t"
-        link_name   = "RaiExchange opening delayed"
-        time_ago    = "2018-05-27T07:32:00Z"
-        # comments    = ""
-    [[XRB.news]]
-        source      = "twitter"
-        link        = "http://t"
-        link_name   = "sdfdfs"
-        time_ago    = "2018-05-27T07:32:00Z"
-
 [ETH]
     name    = "Etherium"
     tag     = "ETH"
@@ -31,19 +14,6 @@
     name    = "SophiaTX"
     tag     = "SPHTX"
     website = "https://sophiatx.com"
-    news    = []
-
-[EDO]
-    name    = "Eidoo"
-    tag     = "EDO"
-    website = "https://eidoo.io"
-    news    = []
-
-[ETC]
-    name    = "Etherium Classic"
-    tag     = "ETC"
-    website = "https://ethereumclassic.github.io/"
-    twitter = "eth_classic"
     news    = []
 
 [REQ]

@@ -11,9 +11,16 @@ fn main() {
 
     // let coindb = ::models::all();
 
-    use coinref::schema::coins::dsl::*;
+    // use coinref::models::Coin;
+
+    // use coinref::schema::coins;
+    // use diesel::prelude::*;
+
     let connection = coinref::establish_connection();
-    let results = coins.limit(5).load::<Coin>(&connection).expect("Error loading posts");
+    // let results = coins::table.load::<coinref::models::Coin>(&connection).expect("Error loading posts");
+    // coins::table.find(1).first::<coinref::models::Coin>(&connection).expect("Error loading user");
+
+    // println!("{:?}", results);
 
     // router
     router.get("/", coinref::controllers::landing, "index");
