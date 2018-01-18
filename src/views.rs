@@ -9,7 +9,7 @@ pub fn layout(title: String, content: String) -> String {
         html {
             head {
                 title {: title }
-                link(rel="stylesheet", type="text/css", href="/static/style.css", media="all");
+                link(rel="stylesheet", type="text/css", href="/static/style.css?v=1", media="all");
                 link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto+Mono");
                 link(rel="icon", type="image/png", href="/static/favicon.png");
             }
