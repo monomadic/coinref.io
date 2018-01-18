@@ -99,6 +99,12 @@ ul {
     margin-top: -10px;
 }
 
+.coin-summary:link, .coin-summary:visited { text-decoration: none; color: black; }
+.coin-summary:link .symbol, .coin-summary:visited .symbol { color: #999; }
+.coin-summary:hover { outline: 1px solid #00FF90; }
+.coin-summary { width: 100px; }
+.coin-summary img { width: 50px; }
+
 .pill-link, .pill-link:visited, .pill-link:link {
     text-decoration: none;
     color: white;
