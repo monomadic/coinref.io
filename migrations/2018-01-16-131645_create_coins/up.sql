@@ -17,6 +17,7 @@ CREATE INDEX coin_symbol ON coins (symbol);
 
 INSERT INTO coins (name, symbol, website) VALUES ("Bitcoin", "BTC", "bitcoin.org");
 INSERT INTO coins (name, symbol, website) VALUES ("Cobinhood", "COB", "cobinhood.com");
+INSERT INTO coins (name, symbol, website, twitter, reddit) VALUES ("Decent", "DCT", "decent.ch", "DECENTplatform", "Decentplatform");
 INSERT INTO coins (name, symbol, website) VALUES ("Eidoo", "EDO", "eidoo.io");
 INSERT INTO coins (name, symbol, website) VALUES ("Etherium", "ETH", "ethereum.org");
 INSERT INTO coins (name, symbol, website, twitter) VALUES ("Etherium Classic", "ETC", "ethereumclassic.github.io", "eth_classic");

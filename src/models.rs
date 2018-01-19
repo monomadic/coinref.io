@@ -22,7 +22,7 @@ pub struct Coin {
 
 pub fn all_coins(connection: SqliteConnection) -> Vec<Coin> {
     use ::schema::coins;
-    let c = coins::table.limit(10).load::<::models::Coin>(&connection).expect("Error loading user");
+    let c = coins::table.limit(100).load::<::models::Coin>(&connection).expect("Error loading user");
 
     return c;
 }

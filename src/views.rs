@@ -15,7 +15,7 @@ pub fn layout(title: String, content: String) -> String {
             }
             body {: Raw(content) }
         }
-    }.into_string().unwrap()
+    }.into_string().expect("view compile: layout()")
 }
 
 pub fn header() -> String {
@@ -24,7 +24,7 @@ pub fn header() -> String {
             a(href="/") { img(src="/static/logo.png", height="31px") }
             : "crypto research network"
         }
-    }.into_string().unwrap()
+    }.into_string().expect("view compile: header()")
 }
 
 pub fn landing(coins: Vec<::models::Coin>) -> String {
