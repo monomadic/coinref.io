@@ -66,9 +66,18 @@ pub mod coin {
                     }
                     div(class="media_links") {
                         @ if let Some(twitter) = coin.twitter.clone() {
-                            a(href=format!("https://twitter.com/{}", twitter), target="_newTab", class="pill-link twitter") {
-                                img(src="/static/twitter.png");
+                            a(href=format!("https://twitter.com/{}", twitter), target="_newTab", class="pill-link icon-twitter") {
                                 span {: format!("@{}", twitter) }
+                            }
+                        }
+                        @ if let Some(reddit) = coin.reddit.clone() {
+                            a(href=format!("https://reddit.com/{}", reddit), target="_newTab", class="pill-link icon-reddit") {
+                                span {: format!("@{}", reddit) }
+                            }
+                        }
+                        @ if let Some(github) = coin.github.clone() {
+                            a(href=format!("https://github.com/{}", github), target="_newTab", class="pill-link icon-github") {
+                                span {: format!("@{}", github) }
                             }
                         }
                     }
