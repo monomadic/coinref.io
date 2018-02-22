@@ -1,3 +1,10 @@
+name = "Bitcoin"
+symbol = "BTC"
+website = "bitcoin.org"
+tags = ["decentralised"]
+
+::
+
 p The world's first decentralised digital currency.
 
 ul

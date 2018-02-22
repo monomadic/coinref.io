@@ -9,6 +9,10 @@ CREATE TABLE coins (
   telegram VARCHAR,
   slack VARCHAR,
   facebook VARCHAR,
+  -- youtube VARCHAR,
+  -- instagram VARCHAR,
+  -- pinterest VARCHAR,
+  -- discord VARCHAR,
   market_cap INTEGER NOT NULL DEFAULT 0,
   page TEXT NOT NULL DEFAULT ''
 );
@@ -25,3 +29,4 @@ INSERT INTO coins (name, symbol, website, twitter) VALUES ("Raiblocks", "XRB", "
 INSERT INTO coins (name, symbol, website) VALUES ("Request Network", "REQ", "request.network");
 INSERT INTO coins (name, symbol, website) VALUES ("SophiaTX", "SPHTX", "sophiatx.com");
 INSERT INTO coins (name, symbol, website) VALUES ("Steem", "STEEM", "steem.io");
+INSERT INTO coins (name, symbol, website, github) VALUES ("Xtrabytes", "XBY", "xtrabytes.global", "borzalom/XtraBYtes");

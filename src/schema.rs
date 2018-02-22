@@ -1,7 +1,7 @@
 table! {
-    coin_tags (CoinId, TagId) {
-        CoinId -> Integer,
-        TagId -> Integer,
+    coin_tags (coin_id, tag_id) {
+        coin_id -> Integer,
+        tag_id -> Integer,
     }
 }
 
@@ -28,6 +28,9 @@ table! {
         name -> Text,
     }
 }
+
+joinable!(coin_tags -> coins (coin_id));
+joinable!(coin_tags -> tags (tag_id));
 
 allow_tables_to_appear_in_same_query!(
     coin_tags,

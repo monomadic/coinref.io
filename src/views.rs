@@ -2,6 +2,7 @@
 #![allow(dead_code)]
 
 use horrorshow::prelude::*;
+use error::*;
 
 pub fn layout(title: String, content: String) -> String {
     return html! {
@@ -22,13 +23,13 @@ pub fn header() -> String {
     return html! {
         header {
             a(href="/") { img(src="/static/logo.png", height="31px") }
-            : "crypto research network"
+            : "crypto research database"
         }
     }.into_string().expect("view compile: header()")
 }
 
-pub fn landing(coins: Vec<::models::Coin>) -> String {
-    layout(
+pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
+    Ok(layout(
         format!("coinref.io"),
         html! {
             : Raw(::views::header());
@@ -46,7 +47,7 @@ pub fn landing(coins: Vec<::models::Coin>) -> String {
                 }
             }
         }.into_string().unwrap()
-    )
+    ))
 }
 
 pub mod coin {
@@ -83,7 +84,8 @@ pub mod coin {
                     }
                 }
                 article {
-                    : Raw(::render_templar::render_template(&format!("data/{}.templar", coin.symbol)),);
+                    // : Raw(::template::render(&format!("data/{}.templar", coin.symbol)),);
+                    div(class="page") { : Raw(coin.page) }
                     h2 {: "Updates" }
                     // @ for news in coin.news {
                     //     li {

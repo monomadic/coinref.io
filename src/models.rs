@@ -1,6 +1,15 @@
 use diesel::prelude::*;
+use diesel::sqlite::SqliteConnection;
 
-#[derive(Queryable)]
+// mod schema {
+//     infer_schema!("database.sql");
+// }
+use ::schema::*;
+use ::schema::coins;
+use ::error::*;
+
+#[derive(Queryable, Associations, Identifiable, Insertable)]
+#[table_name = "coins"]
 pub struct Coin {
     pub id: i32,
     pub name: String,
@@ -20,18 +29,58 @@ pub struct Coin {
     // pub news: Vec<NewsItem>,
 }
 
-pub fn all_coins(connection: SqliteConnection) -> Vec<Coin> {
-    use ::schema::coins;
-    let c = coins::table.limit(100).load::<::models::Coin>(&connection).expect("Error loading user");
+impl Coin {
+    pub fn tags(&self, conn: &SqliteConnection) -> Vec<Tag> {
+        // use diesel::sqlite::expression::dsl::any;
 
-    return c;
+        let coin_tag_ids = CoinTag::belonging_to(self).select(coin_tags::tag_id);
+
+        println!("{:?}", tags::id.eq(coin_tag_ids));
+
+        tags::table
+            .filter(tags::id.eq(coin_tag_ids))
+            .load::<Tag>(conn)
+            .expect("could not load tags")
+    }
+
+    pub fn find_by_symbol(connection: &SqliteConnection, symbol: &str) -> Self {
+        use ::schema::coins;
+        coins::table
+            .filter(coins::symbol.eq(symbol.to_string()))
+            .first::<::models::Coin>(connection)
+            .expect(&format!("Error finding coin: {}", symbol))
+    }
+
+    pub fn insert(&self, db: &SqliteConnection) -> Result<usize, ::diesel::result::Error> {
+        Ok(::diesel::insert_into(coins::table)
+            .values(self)
+            .execute(db)?)
+    }
+
 }
 
-pub fn get_coin(connection: SqliteConnection, coin_symbol: &str) -> Coin {
-    use ::schema::coins;
-    let c = coins::table.filter(coins::symbol.eq(coin_symbol)).first::<::models::Coin>(&connection).expect("Error finding coin");
+#[derive(Queryable, Associations, Identifiable, Debug)]
+pub struct Tag {
+    pub id: i32,
+    pub name: String,
+}
 
-    return c;
+#[derive(Identifiable, Queryable, Associations)]
+#[belongs_to(Coin)]
+#[belongs_to(Tag)]
+pub struct CoinTag {
+    pub id: i32,
+    pub coin_id: i32,
+    pub tag_id: i32,
+}
+
+
+pub fn all_coins(connection: &SqliteConnection) -> Result<Vec<Coin>, CoinrefError> {
+    Ok(coins::table.limit(100).load::<::models::Coin>(connection)?)
+}
+
+pub fn get_coin(connection: &SqliteConnection, coin_symbol: &str) -> Result<Coin, CoinrefError> {
+    Ok(coins::table.filter(coins::symbol.eq(coin_symbol)).first::<::models::Coin>(connection)?)
 }
 
 // #[derive(Debug, Clone, Queryable)]

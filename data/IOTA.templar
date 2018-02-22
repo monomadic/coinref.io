@@ -1,0 +1,8 @@
+name = "IOTA"
+symbol = "IOTA"
+website = ""
+tags = ["centralised"]
+
+::
+
+p Currently centralised, plans to decentralise. Zero fee.

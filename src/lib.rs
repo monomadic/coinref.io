@@ -18,9 +18,10 @@ extern crate horrorshow;
 
 pub mod schema;
 pub mod models;
-mod views;
+pub mod views;
 pub mod controllers;
-mod render_templar;
+pub mod template;
+pub mod error;
 
 use diesel::prelude::*;
 use diesel::sqlite::SqliteConnection;

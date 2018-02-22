@@ -1,0 +1,28 @@
+name = "Icon"
+symbol = "ICX"
+website = ""
+tags = ["centralised"]
+
+::
+
+ul
+    li verification network on a blockchain
+    li south koreas first ICO - the NEO of south korea
+    li working product, actively used (by who?)
+    li open source
+    li competes with ETH, NEO, QTUM, who are well established, large players (but more generalised)
+
+h2 Pros
+ul
+    li.pro already established, working product
+    li.pro extremely large scale team with esteemed credentials (separate blockchain, ai team, marketing team)
+    li.pro founder, Min Kim, very up front and clear in interviews about objectives and technical issues.
+
+h2 Cons
+ul
+    li.con centralised at the start
+    li.con mainnet was pushed back (released now)
+    li.con have not fully communicated their staking positions (why hold it?)
+
+h2 Links
+p https://www.youtube.com/watch?v=tCWYquJIEoE

@@ -2,9 +2,12 @@ use iron::prelude::*;
 use iron::status;
 use iron::headers::ContentType;
 
-pub fn landing(_req: &mut Request) -> IronResult<Response> {
+use ::error::*;
+
+pub fn landing(_req: &mut Request) -> Result<IronResult<Response>, CoinrefError> {
     let connection = ::establish_connection();
-    let coins = ::models::all_coins(connection);
+    let coins = ::models::all_coins(&connection)?;
+    let view = ::views::landing(coins)?;
 
     Ok(Response::with((
         ContentType::html().0,
@@ -15,7 +18,7 @@ pub fn landing(_req: &mut Request) -> IronResult<Response> {
 
 pub fn search(_req: &mut Request) -> IronResult<Response> {
     let connection = ::establish_connection();
-    let coins = ::models::all_coins(connection);
+    let coins = ::models::all_coins(&connection);
 
     Ok(Response::with((
         ContentType::html().0,
@@ -54,7 +57,9 @@ pub mod coin {
         let coin_symbol = req.extensions.get::<::router::Router>().unwrap().find("coin").unwrap();
 
         let connection = ::establish_connection();
-        let coin = ::models::get_coin(connection, coin_symbol);
+        let coin = ::models::get_coin(&connection, coin_symbol);
+
+        // println!("{:?}", coin.tags(&connection));
 
         // let coindb = ::models::all();
         // let coin = coindb.get(coin_symbol).unwrap();
@@ -63,7 +68,7 @@ pub mod coin {
         //     name:  "Raiblocks".to_string(),
         //     tag: coin_name.to_string(),
         //     image: coin_name.to_string(),
-        //     summary: ::render_templar::render_template(&format!("data/{}.templar", coin_name)),
+        //     summary: ::template::render(&format!("data/{}.templar", coin_name)),
         //     website: "https://raiblocks.net".to_string(),
         //     news: vec![
         //         ::models::NewsItem {

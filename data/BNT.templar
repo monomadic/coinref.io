@@ -1,0 +1,12 @@
+name = "Bancor"
+symbol = "BNT"
+website = "www.bancor.network"
+tags = [""]
+
+::
+
+p Bancor is a platform for smart tokens. Users sell tokens into the Bancor network, which can then be exchanged for other tokens without having to match buyers and sellers through an order book, like a traditional exchange. Instead, Bancor attempts to use an algorithm to determine a common price exchange between all tokens.
+
+p Tokens are exchanged on-chain (directly on the blockchain) - which means there is no counterparty risk (no central authority controlling your coins).
+
+https://steemit.com/bancor/@leopdspots/is-bancor-the-fractional-reserve-banking-system-of-crytocurrencies

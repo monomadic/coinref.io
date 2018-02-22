@@ -1,3 +1,4 @@
 #!/bin/sh
 # cargo build --target=x86_64-unknown-linux-musl --release
-cargo build --release --all
+cargo build --all
+cargo run --bin coinref-import
