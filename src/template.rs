@@ -11,13 +11,6 @@ pub struct Config {
 
 struct TemplarDirectiveHandler {}
 
-// #[derive(Debug)]
-// struct DirectiveError {
-//     pub file: String,
-//     pub directive: String,
-//     pub reason: String
-// }
-
 use ::error::*;
 use ::error::CoinrefError as DirectiveError;
 
@@ -28,6 +21,7 @@ impl templar::output::DirectiveHandler for TemplarDirectiveHandler {
     // handle directives eg. template commands
     fn handle<W>(&mut self, _context:&templar::TemplateContext, command: &str, _children: &[templar::Node], _base_indent:usize, _indent_size: usize, _writer: &mut W) -> Result<(), DirectiveError> where W : Write {
         let parts : Vec<_> = command.split(" ").collect();
+
         // check the first word of the command
         match parts.first() {
             // Some(&"doctype") => {
@@ -57,10 +51,11 @@ impl templar::output::DirectiveHandler for TemplarDirectiveHandler {
 pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefError> {
     let mut template = ::std::fs::File::open(template_path).expect("template file to open");
     let mut bytebuffer = Vec::new();
-    template.read_to_end(&mut bytebuffer).expect("template file to read");
-    let file = String::from_utf8(bytebuffer).unwrap();
 
-    let s: Vec<&str> = file.split("::").collect();
+    template.read_to_end(&mut bytebuffer).expect("template file to read");
+
+    let file = String::from_utf8(bytebuffer).unwrap();
+    let s:Vec<&str> = file.split("::").collect();
 
     if s.len() != 2 {
         return Err(CoinrefError {
@@ -71,8 +66,7 @@ pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefE
 
     let metadata = extract_metadata(s.first().unwrap())?;
     let templar_document:String = s.last().unwrap().to_string();
-
-    // println!("{:?}", metadata);
+    let html = render(&templar_document)?;
 
     Ok(::models::NewCoin {
         name: metadata.name,
@@ -87,12 +81,11 @@ pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefE
         facebook:   None,
 
         market_cap: 0,
-        page: templar_document,
+        page: html,
     })
 }
 
 use std::error::Error;
-
 impl From<::toml::de::Error> for ::error::CoinrefError {
     fn from(error: ::toml::de::Error) -> Self {
         ::error::CoinrefError {
@@ -107,9 +100,14 @@ pub fn extract_metadata(toml_data: &str) -> Result<Config, ::error::CoinrefError
     Ok(toml)
 }
 
-pub fn render(template: &str) -> Result<String, ::error::CoinrefError> {
+pub fn render_file(template_file: &str) -> Result<String, ::error::CoinrefError> {
+    let coin = parse(template_file)?;
+    Ok(coin.page)
+}
 
+pub fn render(template: &str) -> Result<String, ::error::CoinrefError> {
     // let template_nodes = templar::parse::parse(template)?;
+    // println!("template: {:?}", template);
     let template = templar::parse::parse(template)?;
 
     let mut directive_handler = TemplarDirectiveHandler{};
@@ -120,41 +118,4 @@ pub fn render(template: &str) -> Result<String, ::error::CoinrefError> {
     let rendered_page = String::from_utf8(rendered_buffer).unwrap();
 
     Ok(rendered_page)
-
-    // match templar::parse::parse(template) {
-    //     Ok(nodes) => {
-    //         let mut directive_handler = TemplarDirectiveHandler{};
-    //         let empty_context = templar::TemplateContext::empty();
-    //         let mut rendered_buffer = Vec::new();
-    //         let render_result = templar::output::write_out(nodes.as_slice(), &empty_context, &mut rendered_buffer, 0, 2, &mut directive_handler)?;
-
-    //         Ok(String::from_utf8(rendered_buffer).unwrap())
-    //     },
-    //     Err(e) => format!("{:?}", e),
-    // }
-
-
-    // let mut template = ::std::fs::File::open(template_path)?;
-
-    // // let mut template = ::std::fs::File::open(template_path).expect("template file to open");
-    // let mut bytebuffer = Vec::new();
-    // template.read_to_end(&mut bytebuffer).expect("template file to read");
-    // let file = String::from_utf8(bytebuffer).unwrap();
-
-    // let s: Vec<&str> = file.split("::").collect();
-
-    // match templar::parse::parse(&s.last().expect("templar document")) {
-    //     Ok(nodes) => {
-    //         let mut directive_handler = TemplarDirectiveHandler{};
-    //         let empty_context = templar::TemplateContext::empty();
-    //         let mut rendered_buffer = Vec::new();
-    //         let render_result = templar::output::write_out(nodes.as_slice(), &empty_context, &mut rendered_buffer, 0, 2, &mut directive_handler);
-
-    //         match render_result {
-    //             Ok(_) => String::from_utf8(rendered_buffer).unwrap(),
-    //             Err(e) => format!("{:?}", e),
-    //         }
-    //     },
-    //     Err(e) => format!("{:?}", e),
-    // }
 }

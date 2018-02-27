@@ -69,7 +69,9 @@ pub mod coin {
 
     pub fn show(coin: ::models::Coin) -> Result<String, CoinrefError> {
         let header = ::views::header()?;
-        let page_html = ::template::render(&format!("data/{}.templar", coin.symbol))?;
+
+        let page_html = ::template::parse(&format!("data/{}.templar", coin.symbol))?.page;
+        // let page_html = ::template::render(&format!("data/{}.templar", coin.symbol))?;
 
         Ok(::views::layout(
             format!("coinref.io - {}", coin.name),
