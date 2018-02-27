@@ -28,11 +28,13 @@ aside {
 }
 
 aside img.logo {
-    width: 90px;
+    width: 150px;
+    height: 150px;
     float: left;
     margin-right: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    border-radius: 100%;
 }
 
 article {
@@ -96,7 +98,7 @@ ul {
 .coin-list { display: block; }
 .coin-list .icon { width: 35px; }
 .coin-list .name { width: 100%; }
-.coin-list img { max-width: 30px; max-height: 30px; float: left; }
+.coin-list img { max-width: 40px; max-height: 40px; float: left; }
 
 .pill-link, .pill-link:visited, .pill-link:link {
     text-decoration: none;
@@ -225,3 +227,12 @@ ul {
     content: "\eac6";
 }
 
+.coin img {
+    background-color: white;
+    border-radius: 100%;
+    border: 3px solid white;
+    display: block;
+    width: 50px;
+    height: 50px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}

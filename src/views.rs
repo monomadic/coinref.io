@@ -38,7 +38,9 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
                 @ for coin in coins {
                     tr(onclick=format!("location.href='/{}'", coin.symbol.clone())) {
                         td(class="icon") {
-                            img(src=format!("/static/icons/{}.png", coin.symbol));
+                            div(class="coin") {
+                                img(src=format!("/static/icons/{}.png", coin.symbol));
+                            }
                         }
                         td(class="name") {
                             a(href=coin.symbol.clone(), class="coin-summary") {: coin.name }
