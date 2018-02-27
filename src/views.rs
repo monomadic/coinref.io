@@ -78,7 +78,9 @@ pub mod coin {
             html! {
                 : Raw(header);
                 aside {
-                    img(src=format!("/static/icons/{}.png", coin.symbol), class="logo");
+                    div(class="coin big-coin") {    
+                        img(src=format!("/static/icons/{}.png", coin.symbol), class="logo");
+                    }
                     h1 {: coin.name }
                     div(class="symbol subheading") {: coin.symbol.clone() }
                     div(class="website") {

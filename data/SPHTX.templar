@@ -1,3 +1,10 @@
+name = "SophiaTX"
+symbol = "SPHTX"
+website = ""
+tags = [""]
+
+::
+
 h2 Summary
 p
     A business blockchain. Uses smart contracts to manage data for <a href="https://en.wikipedia.org/wiki/Enterprise_resource_planning">ERP</a> (business planning tools), <a href="https://en.wikipedia.org/wiki/Customer_relationship_management">CRM</a> (customer relationship management), and <a href="https://en.wikipedia.org/wiki/Supply_chain_management">SCM</a> (supply chain management) systems.

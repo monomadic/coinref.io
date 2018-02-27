@@ -1,3 +1,10 @@
+name = "Etherium Classic"
+symbol = "ETC"
+website = ""
+tags = ["dapp-platform"]
+
+::
+
 p A continuance of the original etherium blockchain. On June 9, 2016, a recursive call bug was discovered causing a great deal of ETH to be hacked and stolen. Etherium developers and community decided to create a new fork. ETC was created as a surprising continuation of the old blockchain. ETC supporters maintain this blockchain adheres closer to the original ideals of the Etherium blockchain.
 
 h2 Vitals

@@ -1,3 +1,10 @@
+name = "Cobinhood"
+symbol = "COB"
+website = ""
+tags = [""]
+
+::
+
 p An exchange token, used for purchasing ICOs on the <a href="http://cobinhood.com/">cobinhood</a> exchange. Cobinhood makes all their money from ICOs as they don't charge a fee, so this token is very important to their business model.
 
 h2 Benefits of holding COB

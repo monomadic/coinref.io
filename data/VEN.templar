@@ -1,3 +1,9 @@
+name = "VeChain"
+symbol = "VEN"
+website = ""
+tags = [""]
+
+::
 
 p Chinese run RFID solution. Competitor to WTC. Partnered with Price Waterhouse Coopers, DNV GL, others under NDA.
 
