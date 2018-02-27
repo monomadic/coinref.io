@@ -18,6 +18,7 @@ struct TemplarDirectiveHandler {}
 //     pub reason: String
 // }
 
+use ::error::*;
 use ::error::CoinrefError as DirectiveError;
 
 use std::io::{Write, Read};
@@ -53,7 +54,7 @@ impl templar::output::DirectiveHandler for TemplarDirectiveHandler {
     }
 }
 
-pub fn parse(template_path: &str) -> Result<::models::Coin, ::error::CoinrefError> {
+pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefError> {
     let mut template = ::std::fs::File::open(template_path).expect("template file to open");
     let mut bytebuffer = Vec::new();
     template.read_to_end(&mut bytebuffer).expect("template file to read");
@@ -61,14 +62,19 @@ pub fn parse(template_path: &str) -> Result<::models::Coin, ::error::CoinrefErro
 
     let s: Vec<&str> = file.split("::").collect();
 
-    let metadata = extract_metadata(s.first().unwrap())?;
+    if s.len() != 2 {
+        return Err(CoinrefError {
+            error_type: CoinrefErrorType::ImportError,
+            message: format!("No metadata found in toml file: {}", template_path),
+        });
+    }
 
-    let templar_document = s.last();
+    let metadata = extract_metadata(s.first().unwrap())?;
+    let templar_document:String = s.last().unwrap().to_string();
 
     // println!("{:?}", metadata);
 
-    Ok(::models::Coin {
-        id: 0,
+    Ok(::models::NewCoin {
         name: metadata.name,
         symbol: metadata.symbol,
         website: metadata.website,
@@ -81,7 +87,7 @@ pub fn parse(template_path: &str) -> Result<::models::Coin, ::error::CoinrefErro
         facebook:   None,
 
         market_cap: 0,
-        page: "String".to_string(),
+        page: templar_document,
     })
 }
 

@@ -8,8 +8,7 @@ use ::schema::*;
 use ::schema::coins;
 use ::error::*;
 
-#[derive(Queryable, Associations, Identifiable, Insertable)]
-#[table_name = "coins"]
+#[derive(Queryable, Associations, Identifiable)]
 pub struct Coin {
     pub id: i32,
     pub name: String,
@@ -27,6 +26,32 @@ pub struct Coin {
     pub page: String,
 
     // pub news: Vec<NewsItem>,
+}
+
+#[derive(Debug, Insertable)]
+#[table_name = "coins"]
+pub struct NewCoin {
+    pub name: String,
+    pub symbol: String,
+    pub website: String,
+
+    pub twitter: Option<String>,
+    pub reddit: Option<String>,
+    pub github: Option<String>,
+    pub telegram: Option<String>,
+    pub slack: Option<String>,
+    pub facebook: Option<String>,
+
+    pub market_cap: i32,
+    pub page: String,
+}
+
+impl NewCoin {
+    pub fn insert(&self, db: &SqliteConnection) -> Result<usize, ::diesel::result::Error> {
+        Ok(::diesel::insert_into(coins::table)
+            .values(self)
+            .execute(db)?)
+    }
 }
 
 impl Coin {
@@ -50,13 +75,6 @@ impl Coin {
             .first::<::models::Coin>(connection)
             .expect(&format!("Error finding coin: {}", symbol))
     }
-
-    pub fn insert(&self, db: &SqliteConnection) -> Result<usize, ::diesel::result::Error> {
-        Ok(::diesel::insert_into(coins::table)
-            .values(self)
-            .execute(db)?)
-    }
-
 }
 
 #[derive(Queryable, Associations, Identifiable, Debug)]

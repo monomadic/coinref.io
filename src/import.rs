@@ -33,13 +33,18 @@ fn read_pages() -> Result<(), CoinrefError> {
     // Ok(())
 
     for path in paths {
-        let filename = path.unwrap().path();
-        println!("Name: {}", filename.display());
+        let filepath = path.unwrap().path();
+        let filename = filepath.to_str().unwrap();
+        // println!("Name: {}", filename.display());
 
-        let coin = coinref::template::parse(filename.to_str().unwrap())?;
-        coin.insert(&db)?;
+        // let coin = coinref::template::parse(filename.to_str().unwrap())?;
 
+        match coinref::template::parse(filename) {
+            Ok(coin) => { coin.insert(&db)?; println!("inserted: {}", coin.name); },
+            Err(error) => println!("error: {}", error.message),
+        };
 
+        // coin.insert(&db)?;
 
         // println!("{}", template);
 
