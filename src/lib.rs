@@ -26,6 +26,6 @@ pub mod error;
 use diesel::prelude::*;
 use diesel::sqlite::SqliteConnection;
 
-pub fn establish_connection() -> SqliteConnection {
-    SqliteConnection::establish("./database.sql").expect("Error connecting to database.")
+pub fn establish_connection() -> Result<SqliteConnection, diesel::ConnectionError> {
+    Ok(SqliteConnection::establish("./database.sql")?)
 }

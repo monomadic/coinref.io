@@ -1,14 +1,27 @@
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct CoinrefError {
     pub error_type: CoinrefErrorType,
     pub message: String,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum CoinrefErrorType {
     ImportError,
     APIError,
     InsertRecordError,
+    DatabaseConnectionError,
+}
+
+use std::error::Error;
+use std::fmt::{self, Debug};
+impl fmt::Display for CoinrefError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        Debug::fmt(&self.message, f)
+    }
+}
+
+impl Error for CoinrefError {
+    fn description(&self) -> &str { &*self.message }
 }
 
 use templar::parse::ParseError as TemplarError;

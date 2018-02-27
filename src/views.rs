@@ -52,9 +52,12 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
 
 pub mod coin {
     use horrorshow::prelude::*;
+    use error::*;
 
-    pub fn show(coin: ::models::Coin) -> String {
-        ::views::layout(
+    pub fn show(coin: ::models::Coin) -> Result<String, CoinrefError> {
+        let page_html = ::template::render(&format!("data/{}.templar", coin.symbol))?;
+
+        Ok(::views::layout(
             format!("coinref.io - {}", coin.name),
             html! {
                 : Raw(::views::header());
@@ -84,8 +87,8 @@ pub mod coin {
                     }
                 }
                 article {
-                    // : Raw(::template::render(&format!("data/{}.templar", coin.symbol)),);
-                    div(class="page") { : Raw(coin.page) }
+                    div(class="page") { : Raw(page_html) }
+                    // div(class="page") { : Raw(coin.page) }
                     h2 {: "Updates" }
                     // @ for news in coin.news {
                     //     li {
@@ -95,6 +98,6 @@ pub mod coin {
                     // }
                 }
             }.into_string().expect("show() render")
-        )
+        ))
     }
 }

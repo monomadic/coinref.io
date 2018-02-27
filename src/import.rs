@@ -18,7 +18,7 @@ fn read_pages() -> Result<(), CoinrefError> {
     // use ::coinref::schema::coins::dsl::*;
 
     let paths = fs::read_dir("data").unwrap();
-    let db = coinref::establish_connection();
+    let db = coinref::establish_connection()?;
 
     // let coins = paths.into_iter().fold_results(|path| {
     //     let filename = path.unwrap().path();
