@@ -103,7 +103,7 @@ pub fn extract_metadata(toml_data: &str) -> Result<Config, ::error::CoinrefError
 
 pub fn render(template: &str) -> Result<String, ::error::CoinrefError> {
 
-    let template_nodes = templar::parse::parse(template)?;
+    // let template_nodes = templar::parse::parse(template)?;
     let template = templar::parse::parse(template)?;
 
     let mut directive_handler = TemplarDirectiveHandler{};

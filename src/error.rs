@@ -7,6 +7,7 @@ pub struct CoinrefError {
 #[derive(Debug, Clone)]
 pub enum CoinrefErrorType {
     ImportError,
+    ViewError,
     APIError,
     InsertRecordError,
     DatabaseConnectionError,

@@ -4,6 +4,15 @@
 use horrorshow::prelude::*;
 use error::*;
 
+impl From<::horrorshow::Error> for CoinrefError {
+    fn from(error: ::horrorshow::Error) -> Self {
+        CoinrefError {
+            error_type: CoinrefErrorType::ViewError,
+            message: format!("horrowshow error: {:?}", error),
+        }
+    }
+}
+
 pub fn layout(title: String, content: String) -> String {
     return html! {
         : ::horrorshow::helper::doctype::HTML;
@@ -19,20 +28,22 @@ pub fn layout(title: String, content: String) -> String {
     }.into_string().expect("view compile: layout()")
 }
 
-pub fn header() -> String {
-    return html! {
+pub fn header() -> Result<String, CoinrefError> {
+    return Ok(html! {
         header {
             a(href="/") { img(src="/static/logo.png", height="31px") }
             : "crypto research database"
         }
-    }.into_string().expect("view compile: header()")
+    }.into_string()?)
 }
 
 pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
+    let header = ::views::header()?;
+
     Ok(layout(
         format!("coinref.io"),
         html! {
-            : Raw(::views::header());
+            : Raw(header);
             h2 {: "top coins" }
             table(class="coin-list") {
                 @ for coin in coins {
@@ -48,7 +59,7 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
                     }
                 }
             }
-        }.into_string().unwrap()
+        }.into_string()?
     ))
 }
 
@@ -57,12 +68,13 @@ pub mod coin {
     use error::*;
 
     pub fn show(coin: ::models::Coin) -> Result<String, CoinrefError> {
+        let header = ::views::header()?;
         let page_html = ::template::render(&format!("data/{}.templar", coin.symbol))?;
 
         Ok(::views::layout(
             format!("coinref.io - {}", coin.name),
             html! {
-                : Raw(::views::header());
+                : Raw(header);
                 aside {
                     img(src=format!("/static/icons/{}.png", coin.symbol), class="logo");
                     h1 {: coin.name }
@@ -99,7 +111,7 @@ pub mod coin {
                     //     }
                     // }
                 }
-            }.into_string().expect("show() render")
+            }.into_string()?
         ))
     }
 }

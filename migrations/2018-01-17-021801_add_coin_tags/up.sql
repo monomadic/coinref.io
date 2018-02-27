@@ -23,6 +23,5 @@ INSERT INTO tags (name) VALUES ("b2b tools");
 INSERT INTO tags (name) VALUES ("ultrafast transactions");
 INSERT INTO tags (name) VALUES ("privacycoin");
 INSERT INTO tags (name) VALUES ("shitcoin");
-
 INSERT INTO tags (name) VALUES ("zero fee");
-INSERT INTO coin_tags (coin_id, tag_id) VALUES ((SELECT id FROM coins WHERE symbol="XRB"), (SELECT id FROM tags WHERE name="ultrafast transactions"));
+-- INSERT INTO coin_tags (coin_id, tag_id) VALUES ((SELECT id FROM coins WHERE symbol="XRB"), (SELECT id FROM tags WHERE name="ultrafast transactions"));

@@ -34,7 +34,7 @@ fn read_pages() -> Result<(), CoinrefError> {
 
     for path in paths {
         let filename = path.unwrap().path();
-        // println!("Name: {}", path.unwrap().path().display());
+        println!("Name: {}", filename.display());
 
         let coin = coinref::template::parse(filename.to_str().unwrap())?;
         coin.insert(&db)?;
