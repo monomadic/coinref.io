@@ -1,3 +1,10 @@
+name = "Etherium"
+symbol = "ETH"
+website = ""
+tags = ["dapp-platform"]
+
+::
+
 h2 Summary
 
 p Shitcoin

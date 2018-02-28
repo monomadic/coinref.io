@@ -1,4 +1,9 @@
+name = "Vertcoin"
+symbol = "VTC"
+website = ""
+tags = []
 
+::
 
 - decentralised mining, highly resistant to centralisation
 - known as the peoples coin

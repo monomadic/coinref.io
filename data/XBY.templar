@@ -1,1 +1,8 @@
+name = "Xtrabytes"
+symbol = "XBY"
+website = ""
+tags = ["dapp-platform"]
+
+::
+
 p Application platform.

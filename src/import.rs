@@ -1,6 +1,8 @@
 extern crate coinref;
 use coinref::error::*;
 
+extern crate coinmarketcap;
+
 fn main() {
     println!("Importing TOML pages...");
 
@@ -15,6 +17,10 @@ fn read_pages() -> Result<(), CoinrefError> {
     let paths = fs::read_dir("data").unwrap();
     let db = coinref::establish_connection()?;
 
+    println!("requesting coinmarketcap data...");
+    let cmc = coinmarketcap::ticker(50, 0);
+
+    println!("importing data...");
     for path in paths {
         let filepath = path.unwrap().path();
         let filename = filepath.to_str().unwrap();

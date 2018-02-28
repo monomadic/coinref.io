@@ -1,4 +1,9 @@
+name = "Monero"
+symbol = "XMR"
+website = ""
+tags = ["privacy-coin"]
 
+::
 
 ul
     li privacy focused coin

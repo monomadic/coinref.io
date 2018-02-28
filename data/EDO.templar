@@ -1,3 +1,10 @@
+name = "Eidoo"
+symbol = "EDO"
+website = ""
+tags = ["wallet"]
+
+::
+
 p Multicurrency wallet and hybrid semi-decentralised exchange.
 
 ul

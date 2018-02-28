@@ -1,3 +1,10 @@
+name = "Decent"
+symbol = "DCT"
+website = ""
+tags = []
+
+::
+
 p Digital media content distribution and publishing platform.
 
 ul
