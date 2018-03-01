@@ -1,0 +1,13 @@
+name = "Verge"
+symbol = "XVG"
+website = "https://vergecurrency.com"
+tags = ["privacycoin"]
+
+::
+
+li 100% open source
+li no pre-mine
+li no ICO
+li fast transactions - 30 second blocks
+li max supply 16.5bn
+li wraith protocol allows hiding transactions
