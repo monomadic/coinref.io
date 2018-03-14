@@ -22,9 +22,12 @@ header img {
 }
 
 aside {
-    width: 40%;
+    display: border-box;
+    width: 100%;
+    max-width: 200px;
     float: left;
     overflow: hidden;
+    padding: 10px;
 }
 
 aside img.logo {
@@ -38,8 +41,9 @@ aside img.logo {
 }
 
 article {
+    width: 100%;
     float: left;
-    width: 60%;
+    max-width: 760px;
 }
 
 h1, h2, h3, h4 {

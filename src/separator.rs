@@ -1,6 +1,14 @@
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
+pub fn price(price_optional: Option<f32>) -> String {
+    if let Some(price) = price_optional {
+        format!("${}", separate(&price.to_string(), ','))
+    } else {
+        "".to_string()
+    }
+}
+
 pub fn separate(s: &str, sep: char) -> String {
     let number_parts = s.split('.').collect::<Vec<&str>>();
     let integer = number_parts.first().unwrap();
