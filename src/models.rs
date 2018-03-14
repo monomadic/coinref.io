@@ -22,7 +22,8 @@ pub struct Coin {
     pub slack: Option<String>,
     pub facebook: Option<String>,
 
-    pub market_cap: i32,
+    pub market_cap_usd: Option<f32>,
+    pub market_cap_rank: Option<i32>,
     pub page: String,
 
     // pub news: Vec<NewsItem>,
@@ -42,7 +43,8 @@ pub struct NewCoin {
     pub slack: Option<String>,
     pub facebook: Option<String>,
 
-    pub market_cap: i32,
+    pub market_cap_usd: Option<f32>,
+    pub market_cap_rank: Option<i32>,
     pub page: String,
 }
 

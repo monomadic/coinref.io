@@ -17,7 +17,8 @@ table! {
         telegram -> Nullable<Text>,
         slack -> Nullable<Text>,
         facebook -> Nullable<Text>,
-        market_cap -> Integer,
+        market_cap_usd -> Nullable<Float>,
+        market_cap_rank -> Nullable<Integer>,
         page -> Text,
     }
 }

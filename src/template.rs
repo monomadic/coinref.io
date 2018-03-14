@@ -80,7 +80,8 @@ pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefE
         slack:      None,
         facebook:   None,
 
-        market_cap: 0,
+        market_cap_usd: None,
+        market_cap_rank: None,
         page: html,
     })
 }

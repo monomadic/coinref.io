@@ -56,6 +56,9 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
                         td(class="name") {
                             a(href=coin.symbol.clone(), class="coin-summary") {: coin.name }
                         }
+                        td(class="cap") {
+                            a(href=coin.symbol.clone(), class="coin-summary") {: coin.market_cap_usd }
+                        }
                     }
                 }
             }

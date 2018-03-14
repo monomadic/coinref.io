@@ -13,7 +13,8 @@ CREATE TABLE coins (
   -- instagram VARCHAR,
   -- pinterest VARCHAR,
   -- discord VARCHAR,
-  market_cap INTEGER NOT NULL DEFAULT 0,
+  market_cap_usd REAL,
+  market_cap_rank INTEGER,
   page TEXT NOT NULL DEFAULT ''
 );
 
