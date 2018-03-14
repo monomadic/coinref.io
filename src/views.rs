@@ -39,6 +39,7 @@ pub fn header() -> Result<String, CoinrefError> {
 
 pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
     let header = ::views::header()?;
+    // let market_cap_usd = format!("{}", coin.market_cap_usd);
 
     Ok(layout(
         format!("coinref.io"),
@@ -57,7 +58,8 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
                             a(href=coin.symbol.clone(), class="coin-summary") {: coin.name }
                         }
                         td(class="cap") {
-                            a(href=coin.symbol.clone(), class="coin-summary") {: coin.market_cap_usd }
+                            span {: "$" }
+                            span {: ::separator::separate(&coin.market_cap_usd.unwrap_or(0.0).to_string(), ',') }
                         }
                     }
                 }

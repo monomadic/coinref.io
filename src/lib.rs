@@ -23,6 +23,8 @@ pub mod controllers;
 pub mod template;
 pub mod error;
 
+mod separator;
+
 use diesel::prelude::*;
 use diesel::sqlite::SqliteConnection;
 
