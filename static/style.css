@@ -24,7 +24,7 @@ header img {
 aside {
     display: border-box;
     width: 100%;
-    max-width: 200px;
+    max-width: 180px;
     float: left;
     overflow: hidden;
     padding: 10px;
@@ -43,7 +43,8 @@ aside img.logo {
 article {
     width: 100%;
     float: left;
-    max-width: 760px;
+    max-width: 740px;
+    padding: 10px;
 }
 
 h1, h2, h3, h4 {
