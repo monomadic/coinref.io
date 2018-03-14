@@ -95,6 +95,7 @@ ul {
 }
 
 .coin-list, .coin-list tr { width: 100%; border-collapse: collapse; cursor: pointer; }
+.coin-list th { text-align: left; padding: 0 10px; font-size: 80%; }
 .coin-list td { padding: 10px; }
 .coin-list a:link, .coin-list a:visited { text-decoration: none; color: black; }
 .coin-list a:link .symbol, .coin-list a:visited .symbol { color: #999; }

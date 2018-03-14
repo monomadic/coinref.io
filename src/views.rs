@@ -46,6 +46,11 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
             : Raw(header);
             h2 {: "top coins" }
             table(class="coin-list") {
+                tr {
+                    th {}
+                    th {: "Price" }
+                    th {: "Cap" }
+                }
                 @ for coin in coins {
                     tr(onclick=format!("location.href='/{}'", coin.symbol.clone())) {
                         td(class="icon") {
