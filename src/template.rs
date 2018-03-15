@@ -99,6 +99,11 @@ pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefE
 
         market_cap_usd: None,
         market_cap_rank: None,
+
+        circulating_supply: None,
+        price_in_btc: None,
+        price_in_usd: None,
+
         page: html,
     })
 }

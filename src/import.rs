@@ -18,11 +18,12 @@ fn read_pages() -> Result<(), CoinrefError> {
     let db = coinref::establish_connection()?;
 
     println!("requesting coinmarketcap data...");
-    let cmc = coinmarketcap::ticker(50, 0).map_err(|e|
+    let cmc = coinmarketcap::ticker(1000, 0).map_err(|e|
         CoinrefError{ error_type: CoinrefErrorType::ImportError, message: e.message })?;
 
     // println!("{:?}", cmc);
-    // println!("{:?}", cmc.into_iter().find(|c| c.symbol == "NEO"));
+    let neo = &cmc.iter().find(|c| c.symbol == "NEO").unwrap();
+    println!("{:?}", neo);
 
     println!("importing data...");
     for path in paths {
@@ -37,6 +38,20 @@ fn read_pages() -> Result<(), CoinrefError> {
                     if let Some(cap) = cmc_coin.market_cap_usd {
                         coin.market_cap_usd = Some(cap as f32);
                     }
+
+                    if let Some(btc) = cmc_coin.price_btc {
+                        coin.price_in_btc = Some(btc as f32);
+                    }
+
+                    if let Some(usd) = cmc_coin.price_usd {
+                        coin.price_in_usd = Some(usd as f32);
+                    }
+
+                    if let Some(supply) = cmc_coin.available_supply {
+                        coin.circulating_supply = Some(supply as i32);
+                    }
+
+                    coin.market_cap_rank = Some(cmc_coin.rank as i32);
                 }
                 coin.insert(&db)?;
                 println!("inserted: {}", coin.name);

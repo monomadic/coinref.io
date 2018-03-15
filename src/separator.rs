@@ -1,7 +1,8 @@
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
-pub fn price(price_optional: Option<f32>) -> String {
+pub fn price<T>(price_optional: Option<T>) -> String where
+    T : ::std::string::ToString {
     if let Some(price) = price_optional {
         format!("${}", separate(&price.to_string(), ','))
     } else {

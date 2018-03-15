@@ -24,6 +24,11 @@ pub struct Coin {
 
     pub market_cap_usd: Option<f32>,
     pub market_cap_rank: Option<i32>,
+
+    pub circulating_supply: Option<i32>,
+    pub price_in_btc: Option<f32>,
+    pub price_in_usd: Option<f32>,
+
     pub page: String,
 
     // pub news: Vec<NewsItem>,
@@ -45,6 +50,11 @@ pub struct NewCoin {
 
     pub market_cap_usd: Option<f32>,
     pub market_cap_rank: Option<i32>,
+
+    pub circulating_supply: Option<i32>,
+    pub price_in_btc: Option<f32>,
+    pub price_in_usd: Option<f32>,
+
     pub page: String,
 }
 
@@ -94,9 +104,12 @@ pub struct CoinTag {
     pub tag_id: i32,
 }
 
-
 pub fn all_coins(connection: &SqliteConnection) -> Result<Vec<Coin>, CoinrefError> {
-    Ok(coins::table.limit(100).load::<::models::Coin>(connection)?)
+    Ok(coins::table
+        .limit(100)
+        .order(coins::market_cap_rank)
+        .load::<::models::Coin>(connection)?
+    )
 }
 
 pub fn get_coin(connection: &SqliteConnection, coin_symbol: &str) -> Result<Coin, CoinrefError> {

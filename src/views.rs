@@ -41,7 +41,7 @@ pub fn header() -> Result<String, CoinrefError> {
         header {
             // : Raw(youtube_video("5PsQPpFgvu4"));
             a(href="/") { img(src="/static/logo.png", height="31px") }
-            : "crypto research reports database"
+            : "crypto research database"
         }
     }.into_string()?)
 }
@@ -55,12 +55,16 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
             : Raw(header);
             table(class="coin-list") {
                 tr {
-                    th {}
-                    th {: "Price" }
+                    th {: "Rank" }
+                    th(colspan="2") { }
+                    th {: "Supply" }
+                    th {: "Price (BTC)" }
+                    th {: "Price (USD)" }
                     th {: "Cap" }
                 }
                 @ for coin in coins {
                     tr(onclick=format!("location.href='/{}'", coin.symbol.clone())) {
+                        td(class="rank") {: coin.market_cap_rank }
                         td(class="icon") {
                             div(class="coin") {
                                 img(src=format!("/static/icons/{}.png", coin.symbol));
@@ -69,9 +73,10 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
                         td(class="name") {
                             a(href=coin.symbol.clone(), class="coin-summary") {: coin.name }
                         }
-                        td(class="cap") {:
-                            ::separator::price(coin.market_cap_usd)
-                        }
+                        td(class="circulating_supply") {: coin.circulating_supply }
+                        td(class="price_in_btc") {: ::separator::price(coin.price_in_btc) }
+                        td(class="price_in_usd") {: ::separator::price(coin.price_in_usd) }
+                        td(class="cap") {: ::separator::price(coin.market_cap_usd) }
                     }
                 }
             }

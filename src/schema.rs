@@ -19,6 +19,9 @@ table! {
         facebook -> Nullable<Text>,
         market_cap_usd -> Nullable<Float>,
         market_cap_rank -> Nullable<Integer>,
+        circulating_supply -> Nullable<Integer>,
+        price_in_btc -> Nullable<Float>,
+        price_in_usd -> Nullable<Float>,
         page -> Text,
     }
 }
