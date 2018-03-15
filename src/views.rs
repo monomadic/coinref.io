@@ -13,6 +13,14 @@ impl From<::horrorshow::Error> for CoinrefError {
     }
 }
 
+pub fn youtube_video(id: &str) -> String {
+    let thumbnail_url = format!("https://img.youtube.com/vi/{}/0.jpg", id);
+
+    return html! {
+        img(src=thumbnail_url)
+    }.into_string().expect("view compile: layout()")
+}
+
 pub fn layout(title: String, content: String) -> String {
     return html! {
         : ::horrorshow::helper::doctype::HTML;
@@ -31,8 +39,9 @@ pub fn layout(title: String, content: String) -> String {
 pub fn header() -> Result<String, CoinrefError> {
     return Ok(html! {
         header {
+            // : Raw(youtube_video("5PsQPpFgvu4"));
             a(href="/") { img(src="/static/logo.png", height="31px") }
-            : "crypto research database"
+            : "crypto research reports database"
         }
     }.into_string()?)
 }
@@ -44,7 +53,6 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
         format!("coinref.io"),
         html! {
             : Raw(header);
-            h2 {: "top coins" }
             table(class="coin-list") {
                 tr {
                     th {}

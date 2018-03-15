@@ -19,7 +19,7 @@ impl templar::output::DirectiveHandler for TemplarDirectiveHandler {
     type DirectiveError = DirectiveError;
 
     // handle directives eg. template commands
-    fn handle<W>(&mut self, _context:&templar::TemplateContext, command: &str, _children: &[templar::Node], _base_indent:usize, _indent_size: usize, _writer: &mut W) -> Result<(), DirectiveError> where W : Write {
+    fn handle<W>(&mut self, _context:&templar::TemplateContext, command: &str, _children: &[templar::Node], _base_indent:usize, _indent_size: usize, writer: &mut W) -> Result<(), DirectiveError> where W : Write {
         let parts : Vec<_> = command.split(" ").collect();
 
         // check the first word of the command
@@ -38,6 +38,23 @@ impl templar::output::DirectiveHandler for TemplarDirectiveHandler {
             //         reason: "no such value".to_string(),
             //     })
             // },
+
+            Some(&"youtube") => {
+                if let Some(youtube_id) = parts.get(1) {
+                    let html = format!("<img src='{}'/>", youtube_id);
+
+                    writer.write_all(html.as_bytes()).map_err(|_| DirectiveError {
+                        error_type: CoinrefErrorType::ViewError,
+                        message: format!("templar error writing: {}", command),
+                    })
+                } else {
+                    Err(DirectiveError {
+                        error_type: CoinrefErrorType::ViewError,
+                        message: format!("missing operand to youtube directive."),
+                    })
+                }
+            },
+
             _ => {
                 Err(DirectiveError {
                     error_type: ::error::CoinrefErrorType::ImportError,
