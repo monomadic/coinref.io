@@ -11,16 +11,16 @@ iron = "0.6"
 router = "*"
 staticfile = "*"
 mount = "*"
-# templar = { git = "https://github.com/robsaunders/templar" }
-templar = { path = "../templar" }
+templar = { git = "https://github.com/robsaunders/templar" }
+# templar = { path = "../templar" }
 horrorshow = "*"
 toml = "*"
 serde = "*"
 serde_derive = "1.0"
 diesel = { version = "1.0.0", features = ["sqlite"] }
 regex = "0.2"
-# coinmarketcap = { git = "https://github.com/robsaunders/coinmarketcap-rs" }
-coinmarketcap = { path = "../coinmarketcap-rs" }
+coinmarketcap = { git = "https://github.com/robsaunders/coinmarketcap-rs" }
+# coinmarketcap = { path = "../coinmarketcap-rs" }
 
 # [target.x86_64-unknown-linux-musl]
 # linker = "x86_64-linux-musl-gcc"
