@@ -9,7 +9,7 @@ CREATE TABLE coins (
   telegram VARCHAR,
   slack VARCHAR,
   facebook VARCHAR,
-  -- youtube VARCHAR,
+  youtube VARCHAR,
   -- instagram VARCHAR,
   -- pinterest VARCHAR,
   -- discord VARCHAR,

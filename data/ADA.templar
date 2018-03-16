@@ -1,6 +1,20 @@
-name = "Cardano"
-symbol = "ADA"
-website = "www.bancor.network"
-tags = [""]
+name            = "Cardano"
+symbol          = "ADA"
+website         = "cardano.org"
+coinmarketcap   = "cardano"
+twitter         = "CardanoStiftung"
+facebook        = "CardanoCommunity"
+reddit          = "cardano"
+youtube         = "UCbQ9vGfezru1YRI1zDCtTGg"
+tags            = [""]
 
 ::
+
+p The Cardano platform hosts a cryptocurrency, ADA, and a dApp platform targetted at financial applications.
+
+h2 Links
+ul
+    li
+        a href="cardanohub.org" cardanohub.org
+    li
+        a href="cardanoroadmap.com" cardanoroadmap.com

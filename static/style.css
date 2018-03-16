@@ -112,15 +112,27 @@ table tr.data:hover {outline: 1px solid #00FF90; background-color: #E9FCF4; }
 .pill-link, .pill-link:visited, .pill-link:link {
     text-decoration: none;
     color: white;
-    padding: 5px 20px;
+    padding: 5px;
     display: inline-block;
     border-radius: 20px;
-    margin: 2px 0;
+    margin: 15px 0 5px;
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    margin-right: 5px;
 }
 .pill-link { line-height: 20px; }
+.pill-link span { display: none; }
 .pill-link.icon-twitter { background-color: #00C8EE; }
-.pill-link.icon-github { background-color: #474747; }
+.pill-link.icon-twitter:hover { background-color: #10D8FE; }
 .pill-link.icon-reddit { background-color: #EF2D00; }
+.pill-link.icon-reddit:hover { background-color: #FF3D10; }
+.pill-link.icon-github { background-color: #474747; }
+.pill-link.icon-telegram { background-color: #EF2D00; }
+.pill-link.icon-slack { background-color: #EF2D00; }
+.pill-link.icon-facebook { background-color: #3B5998; }
+.pill-link.icon-facebook:hover { background-color: #4B79B8; }
+.pill-link.icon-youtube { background-color: #FF0000; }
 
 .tag {
     display: inline-block;
@@ -226,7 +238,7 @@ table tr.data:hover {outline: 1px solid #00FF90; background-color: #E9FCF4; }
 .icon-twitter:before {
     content: "\e915";
 }
-.icon-you-tube:before {
+.icon-youtube:before {
     content: "\e916";
 }
 .icon-slack:before {

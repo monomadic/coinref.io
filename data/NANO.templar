@@ -1,6 +1,6 @@
 name = "Nano"
 symbol = "NANO"
-website = ""
+website = "nano.org"
 tags = [""]
 
 ::
@@ -10,6 +10,13 @@ p It uses a DAG (directed acyclic graph) instead of a blockchain.
 
 .tag-list
     .tag decentralised
+
+h2 Vitals
+ul
+    li.pro decentralised
+    li.con has been extremely difficult for exchanges to implement
+    li.con a previous exchange that carried XRB, <a href="https://mercatox.com/">mercatox</a>, has been extremely poor with returning customers XRB.
+    li.con no smart contracts, so it can never have privacy or off-chain transactions.
 
 h2 Closest Competitors
 ul
@@ -21,10 +28,12 @@ ul
     li Stellar Lumens: Centralized, fees.
     li EOS: Heavily Centralized
     li Ethereum: If they have sharding, they can become more competitive, especially if they eventually implement a third layer of sharding.
-    li NEO: Already has sharding. Kinda still centralized though. I think this is the blockchain to rule them all, it will just be used for heavily regulated industries. I think RaiBlocks will be a massive player in the unregulated transactions space.
+    li NEO: Already has sharding. Somewhat centralized.
 
-h2 Vitals
+h2 Opinion
+p Most likely will have a big future in the unregulated space, peer to peer currency swaps, small businesses and popup stores. Does not have the capacity to deal with super-massive transactions especially from one-wallet so is not appropriate for corporates or large organisations.
+
+h2 Links
 ul
-    li.pro decentralised
-    li.con has been extremely difficult for exchanges to implement
-    li.con a previous exchange that carried XRB, <a href="https://mercatox.com/">mercatox</a>, has been extremely poor with returning customers XRB.
+    li
+        a href="https://nanowallet.io" nanowallet.io

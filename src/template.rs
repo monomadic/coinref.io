@@ -3,10 +3,17 @@ use toml;
 
 #[derive(Debug, Deserialize)]
 pub struct Config {
-    name: String,
-    symbol: String,
-    website: String,
-    tags: Vec<String>,
+    name:       String,
+    symbol:     String,
+    website:    String,
+    twitter:    Option<String>,
+    reddit:     Option<String>,
+    github:     Option<String>,
+    telegram:   Option<String>,
+    slack:      Option<String>,
+    facebook:   Option<String>,
+    youtube:    Option<String>,
+    tags:       Vec<String>,
 }
 
 struct TemplarDirectiveHandler {}
@@ -90,12 +97,13 @@ pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefE
         symbol: metadata.symbol,
         website: metadata.website,
 
-        twitter:    None,
-        reddit:     None,
-        github:     None,
-        telegram:   None,
-        slack:      None,
-        facebook:   None,
+        twitter:    metadata.twitter,
+        reddit:     metadata.reddit,
+        github:     metadata.github,
+        telegram:   metadata.telegram,
+        slack:      metadata.slack,
+        facebook:   metadata.facebook,
+        youtube:    metadata.youtube,
 
         market_cap_usd: None,
         market_cap_rank: None,

@@ -7,15 +7,13 @@ tags = [""]
 
 p ICO platform - competitor to Etherium, NEO, etc. supports text messages on the blockchain.
 
-- not private
-- designed to compete with btc/visa/etc
-- mult-sign wallets
-- proof of importance (users who hold/spend/are involved get more staking power)
-- no more mining, 100% premined
-- uses almost no electricity
-
 ul
-    li.con not really offering anything new/disruptive
+    li - not private
+    li - designed to compete with btc/visa/etc
+    li - mult-sign wallets
+    li - proof of importance (users who hold/spend/are involved get more staking power)
+    li - no more mining, 100% premined
+    li - uses almost no electricity
 
 h2 Pros
 ul
@@ -30,3 +28,4 @@ h2 Cons
 ul
     li.con no hype, no marketing
     li.con recently had 500 million NEM stolen in coincheck hack.
+    li.con not really offering anything new/disruptive

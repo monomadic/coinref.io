@@ -21,6 +21,7 @@ pub struct Coin {
     pub telegram: Option<String>,
     pub slack: Option<String>,
     pub facebook: Option<String>,
+    pub youtube: Option<String>,
 
     pub market_cap_usd: Option<f32>,
     pub market_cap_rank: Option<i32>,
@@ -49,6 +50,7 @@ pub struct NewCoin {
     pub telegram: Option<String>,
     pub slack: Option<String>,
     pub facebook: Option<String>,
+    pub youtube: Option<String>,
 
     pub market_cap_usd: Option<f32>,
     pub market_cap_rank: Option<i32>,

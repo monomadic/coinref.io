@@ -41,7 +41,7 @@ pub fn header() -> Result<String, CoinrefError> {
         header {
             // : Raw(youtube_video("5PsQPpFgvu4"));
             a(href="/") { img(src="/static/logo.png", height="31px") }
-            : "crypto research database"
+            : "crypto research reports"
         }
     }.into_string()?)
 }
@@ -125,12 +125,22 @@ pub mod coin {
                                 span {: format!("@{}", github) }
                             }
                         }
+                        @ if let Some(facebook) = coin.facebook.clone() {
+                            a(href=format!("https://facebook.com/groups/{}", facebook), target="_newTab", class="pill-link icon-facebook") {
+                                span {: format!("@{}", facebook) }
+                            }
+                        }
+                        @ if let Some(youtube) = coin.youtube.clone() {
+                            a(href=format!("https://www.youtube.com/channel/{}", youtube), target="_newTab", class="pill-link icon-youtube") {
+                                span {: format!("@{}", youtube) }
+                            }
+                        }
                     }
                 }
                 article {
                     div(class="page") { : Raw(page_html) }
                     // div(class="page") { : Raw(coin.page) }
-                    h2 {: "Updates" }
+                    // h2 {: "Updates" }
                     // @ for news in coin.news {
                     //     li {
                     //         : news.source;

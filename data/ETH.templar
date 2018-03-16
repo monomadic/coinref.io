@@ -7,7 +7,13 @@ tags = ["dapp-platform"]
 
 h2 Summary
 
-p Shitcoin
+p The current largest blockchain-based dApp platform.
 
+h3 Centralisation
+p Some argue that ethereum is centralised as the Ethereum Foundation holds over 70% of the funds from the initial premine.
+
+h4 Links
 ul
-    li.con arguably centralised
+    li
+        a href="https://www.reddit.com/r/ethereumfraud/comments/6bgvqv/faq_what_exactly_is_the_fraud_in_ethereum/" target="_newTab"
+            | reddit: exactly what is the fraud in ethereum?
