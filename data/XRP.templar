@@ -5,4 +5,8 @@ tags = ["dapp-platform"]
 
 ::
 
-https://www.youtube.com/watch?v=jpCWCm4KbiM
+h2 Links
+ul
+    li
+        a href="https://www.youtube.com/watch?v=jpCWCm4KbiM"
+            | Youtube - Decentralised Thought: Could XRP (Ripple) Be a Scam

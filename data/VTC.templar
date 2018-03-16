@@ -5,11 +5,12 @@ tags = []
 
 ::
 
-- decentralised mining, highly resistant to centralisation
-- known as the peoples coin
-- no pre-mine
-- finite supply (84 million)
-- low fee mining
-- difficulty adjusts every block (kimodo's gravity well)
-- privacy coin (stealth transactions)
-- lightning network capable
+ul
+    li - decentralised mining, highly resistant to centralisation
+    li - known as the peoples coin
+    li - no pre-mine
+    li - finite supply (84 million)
+    li - low fee mining
+    li - difficulty adjusts every block (kimodo's gravity well)
+    li - privacy coin (stealth transactions)
+    li - lightning network capable

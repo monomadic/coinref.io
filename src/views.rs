@@ -136,6 +136,28 @@ pub mod coin {
                             }
                         }
                     }
+                    br {}
+                    div(class="stats") {
+                        div(class="cmc") {
+                            strong {: "Market Cap: " }
+                            span {: ::separator::number(coin.market_cap_usd) }
+                        }
+                        br {}
+                        div(class="cmc") {
+                            strong {: "Circulating Supply: " }
+                            span {: ::separator::number(coin.circulating_supply) }
+                        }
+                        br {}
+                        div(class="cmc") {
+                            strong {: "Price USD: " }
+                            span {: ::separator::number(coin.price_in_usd) }
+                        }
+                        br {}
+                        div(class="cmc") {
+                            strong {: "Price BTC: " }
+                            span {: ::separator::number(coin.price_in_btc) }
+                        }
+                    }
                 }
                 article {
                     div(class="page") { : Raw(page_html) }
