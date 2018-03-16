@@ -1,11 +1,18 @@
-name = "Neo"
-symbol = "NEO"
-website = ""
-tags = [""]
+name            = "Neo"
+symbol          = "NEO"
+website         = "neo.org"
+coinmarketcap   = "neo"
+twitter         = "neo_blockchain"
+facebook        = "NEOSmartEcon"
+reddit          = "NEO"
+github          = "neo-project"
+tags            = [""]
 
 ::
 
+p NEO is an application platform.
+
 ul
-    li 27 ICOs coming out in 2018
-    li pay dividends in GAS
-    li much smaller market cap than ADA or ETH (higher possibility of gains)
+    li - 27 ICOs coming out in 2018
+    li - pay dividends in GAS
+    li - much smaller market cap than ADA or ETH (higher possibility of gains)

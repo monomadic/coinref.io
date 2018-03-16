@@ -1,7 +1,13 @@
-name = "Etherium"
-symbol = "ETH"
-website = ""
-tags = ["dapp-platform"]
+name            = "Etherium"
+symbol          = "ETH"
+website         = "ethereum.org"
+coinmarketcap   = "ethereum"
+twitter         = "ethereumproject"
+facebook        = "ethereumproject"
+reddit          = "ethereum"
+youtube         = "ethereumproject"
+github          = "ethereum"
+tags            = ["dapp-platform"]
 
 ::
 

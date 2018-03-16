@@ -128,6 +128,7 @@ table tr.data:hover {outline: 1px solid #00FF90; background-color: #E9FCF4; }
 .pill-link.icon-reddit { background-color: #EF2D00; }
 .pill-link.icon-reddit:hover { background-color: #FF3D10; }
 .pill-link.icon-github { background-color: #474747; }
+.pill-link.icon-github:hover { background-color: #575757; }
 .pill-link.icon-telegram { background-color: #EF2D00; }
 .pill-link.icon-slack { background-color: #EF2D00; }
 .pill-link.icon-facebook { background-color: #3B5998; }
@@ -193,7 +194,7 @@ table tr.data:hover {outline: 1px solid #00FF90; background-color: #E9FCF4; }
 .icon-facebook:before {
     content: "\e906";
 }
-.icon-git-hub:before {
+.icon-github:before {
     content: "\e907";
 }
 .icon-google:before {

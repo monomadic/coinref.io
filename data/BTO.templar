@@ -1,7 +1,25 @@
-name = "Bottos"
-symbol = "BTO"
-website = ""
-tags = [""]
+name            = "Bottos"
+symbol          = "BTO"
+website         = "bottos.org"
+coinmarketcap   = "ethereum"
+telegram        = "bottosglobal"
+twitter         = "bottos_ai"
+facebook        = "bottos.org"
+reddit          = "bottos"
+youtube         = "UC0zCV7YgP6zg4lqxWwyryEg?view_as=public)"
+github          = "bottos-project"
+medium          = "bottos"
+tags            = ["ai"]
 
 ::
 
+p Programmable data sharing network with heavy AI components.
+
+h2 Team
+p Five people. One cofounder was Chief Marketing Officer for #NEO and founded an unnamed robotic R&D company. They seem thin on developers.
+
+h2 Technicals
+p Custom blockchain written in golang.
+
+h2 Opinion
+p The website and marketing materials are pooly made and obviously not marketed well toward an english speaking audience. Small team for a large project. Well chosen founders. Fairly vacant development plan.
