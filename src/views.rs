@@ -54,7 +54,7 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
         html! {
             : Raw(header);
             table(class="coin-list") {
-                tr {
+                tr(class="heading") {
                     th {: "Rank" }
                     th(colspan="2") { }
                     th {: "Supply" }
@@ -63,7 +63,7 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
                     th {: "Cap" }
                 }
                 @ for coin in coins {
-                    tr(onclick=format!("location.href='/{}'", coin.symbol.clone())) {
+                    tr(class="data", onclick=format!("location.href='/{}'", coin.symbol.clone())) {
                         td(class="rank") {: coin.market_cap_rank }
                         td(class="icon") {
                             div(class="coin") {
