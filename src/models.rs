@@ -29,6 +29,8 @@ pub struct Coin {
     pub price_in_btc: Option<f32>,
     pub price_in_usd: Option<f32>,
 
+    pub growth_potential: Option<f32>,
+
     pub page: String,
 
     // pub news: Vec<NewsItem>,
@@ -55,6 +57,7 @@ pub struct NewCoin {
     pub price_in_btc: Option<f32>,
     pub price_in_usd: Option<f32>,
 
+    pub growth_potential: Option<f32>,
     pub page: String,
 }
 

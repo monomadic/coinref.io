@@ -22,6 +22,7 @@ table! {
         circulating_supply -> Nullable<Integer>,
         price_in_btc -> Nullable<Float>,
         price_in_usd -> Nullable<Float>,
+        growth_potential -> Nullable<Float>,
         page -> Text,
     }
 }

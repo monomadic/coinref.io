@@ -104,6 +104,8 @@ pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefE
         price_in_btc: None,
         price_in_usd: None,
 
+        growth_potential: None,
+
         page: html,
     })
 }

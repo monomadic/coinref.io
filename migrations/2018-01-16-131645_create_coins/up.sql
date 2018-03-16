@@ -18,6 +18,7 @@ CREATE TABLE coins (
   circulating_supply INTEGER,
   price_in_btc REAL,
   price_in_usd REAL,
+  growth_potential REAL,
   page TEXT NOT NULL DEFAULT ''
 );
 

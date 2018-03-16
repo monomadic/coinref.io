@@ -17,7 +17,7 @@ horrorshow = "*"
 toml = "*"
 serde = "*"
 serde_derive = "1.0"
-diesel = { version = "1.0.0", features = ["sqlite"] }
+diesel = { version = "1.0.0", features = ["sqlite", "large-tables"] }
 regex = "0.2"
 coinmarketcap = { git = "https://github.com/robsaunders/coinmarketcap-rs" }
 # coinmarketcap = { path = "../coinmarketcap-rs" }

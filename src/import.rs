@@ -22,8 +22,9 @@ fn read_pages() -> Result<(), CoinrefError> {
         CoinrefError{ error_type: CoinrefErrorType::ImportError, message: e.message })?;
 
     // println!("{:?}", cmc);
-    let neo = &cmc.iter().find(|c| c.symbol == "NEO").unwrap();
-    println!("{:?}", neo);
+    let btc = &cmc.iter().find(|c| c.symbol == "BTC").unwrap();
+    let btc_mc = btc.market_cap_usd.unwrap();
+    // println!("{:?}", neo);
 
     println!("importing data...");
     for path in paths {
@@ -37,6 +38,7 @@ fn read_pages() -> Result<(), CoinrefError> {
 
                     if let Some(cap) = cmc_coin.market_cap_usd {
                         coin.market_cap_usd = Some(cap as f32);
+                        coin.growth_potential = Some((cap / btc_mc * 100_f64) as f32);
                     }
 
                     if let Some(btc) = cmc_coin.price_btc {
@@ -49,6 +51,10 @@ fn read_pages() -> Result<(), CoinrefError> {
 
                     if let Some(supply) = cmc_coin.available_supply {
                         coin.circulating_supply = Some(supply as i32);
+                    }
+
+                    if let Some(usd) = cmc_coin.price_usd {
+                        coin.price_in_usd = Some(usd as f32);
                     }
 
                     coin.market_cap_rank = Some(cmc_coin.rank as i32);
