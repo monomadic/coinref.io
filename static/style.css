@@ -105,6 +105,7 @@ table tr.data:hover {outline: 1px solid #00FF90; background-color: #E9FCF4; }
 .coin-list a:link .symbol, .coin-list a:visited .symbol { color: #999; }
 .coin-list { display: block; }
 .coin-list .icon { width: 35px; }
+.coin-list .rank { width: 35px; }
 .coin-list .name { width: 100%; }
 .coin-list img { max-width: 40px; max-height: 40px; float: left; }
 

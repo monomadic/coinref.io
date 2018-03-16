@@ -1,10 +1,30 @@
 #![allow(unused_variables)]
 #![allow(dead_code)]
 
-pub fn price<T>(price_optional: Option<T>) -> String where
+pub fn number<T>(price_optional: Option<T>) -> String where
     T : ::std::string::ToString {
     if let Some(price) = price_optional {
-        format!("${}", separate(&price.to_string(), ','))
+        separate(&price.to_string(), ',')
+    } else {
+        "".to_string()
+    }
+}
+
+pub fn price_dollar<T>(price_optional: Option<T>) -> String where
+    T: ::std::string::ToString,
+    T: ::std::fmt::Display {
+    if let Some(price) = price_optional {
+        format!("${}", separate(&format!("{:.2}", price), ','))
+    } else {
+        "".to_string()
+    }
+}
+
+pub fn price_btc<T>(price_optional: Option<T>) -> String where
+    T: ::std::string::ToString,
+    T: ::std::fmt::Display {
+    if let Some(price) = price_optional {
+        format!("{}BTC", separate(&format!("{:.8}", price), ','))
     } else {
         "".to_string()
     }
