@@ -1,19 +1,21 @@
 name = "NEM"
 symbol = "XEM"
 website = ""
+consensus = "PoI"
+telegram = "nemred"
+facebook = "ourNEM"
+twitter = "nemofficial"
 tags = [""]
 
 ::
 
 p Application platform and currency. supports text messages on the blockchain.
 
+h2 Key Features
 ul
-    li - not private
-    li - designed to compete with btc/visa/etc
-    li - mult-sign wallets
+    li - Multi-signature wallets (good for corporate users, organisations, who don't want to leave trust in the hands of a single wallet).
     li - proof of importance (users who hold/spend/are involved get more staking power)
-    li - no more mining, 100% premined
-    li - uses almost no electricity
+    li - no mining, 100% premined (uses almost no electricity)
 
 h2 Pros
 ul

@@ -1,0 +1,7 @@
+name = "Siacoin"
+symbol = "SC"
+website = "sia.tech"
+tags = ["storage"]
+
+::
+

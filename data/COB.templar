@@ -1,6 +1,7 @@
 name = "Cobinhood"
 symbol = "COB"
-website = ""
+website = "lisk.io"
+ignore = true
 tags = [""]
 
 ::
