@@ -14,6 +14,7 @@ pub struct Config {
     facebook:   Option<String>,
     youtube:    Option<String>,
     tags:       Vec<String>,
+    skip:       Option<bool>,
 }
 
 struct TemplarDirectiveHandler {}
@@ -28,24 +29,7 @@ impl templar::output::DirectiveHandler for TemplarDirectiveHandler {
     // handle directives eg. template commands
     fn handle<W>(&mut self, _context:&templar::TemplateContext, command: &str, _children: &[templar::Node], _base_indent:usize, _indent_size: usize, writer: &mut W) -> Result<(), DirectiveError> where W : Write {
         let parts : Vec<_> = command.split(" ").collect();
-
-        // check the first word of the command
         match parts.first() {
-            // Some(&"doctype") => {
-            //     writer.write_all(b"<!DOCTYPE html>\n").map_err(|_| DirectiveError {
-            //         file: "".to_string(),
-            //         directive: command.to_string(),
-            //         reason: "couldnt write doctype".to_string(),
-            //     })
-            // },
-            // Some(&"print") => {
-            //     writer.write_all(parts.last().unwrap().as_bytes()).map_err(|_| DirectiveError {
-            //         file: "".to_string(),
-            //         directive: command.to_string(),
-            //         reason: "no such value".to_string(),
-            //     })
-            // },
-
             Some(&"youtube") => {
                 if let Some(youtube_id) = parts.get(1) {
                     let html = format!("<img src='{}'/>", youtube_id);
@@ -61,7 +45,6 @@ impl templar::output::DirectiveHandler for TemplarDirectiveHandler {
                     })
                 }
             },
-
             _ => {
                 Err(DirectiveError {
                     error_type: ::error::CoinrefErrorType::ImportError,
@@ -88,7 +71,9 @@ pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefE
         });
     }
 
-    let metadata = extract_metadata(s.first().unwrap())?;
+    let metadata = extract_metadata(s.first().expect("metadata to read")).map_err(|e|
+        CoinrefError{ error_type: CoinrefErrorType::ImportError, message: e.message })?;
+
     let templar_document:String = s.last().unwrap().to_string();
     let html = render(&templar_document)?;
 
@@ -129,7 +114,8 @@ impl From<::toml::de::Error> for ::error::CoinrefError {
 }
 
 pub fn extract_metadata(toml_data: &str) -> Result<Config, ::error::CoinrefError> {
-    let toml:Config = toml::from_str(toml_data)?;
+    let toml:Config = toml::from_str(toml_data).map_err(|e|
+        CoinrefError{ error_type: CoinrefErrorType::ImportError, message: format!("TOML error: {}", e) })?;
     Ok(toml)
 }
 

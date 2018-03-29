@@ -18,27 +18,30 @@ fn read_pages() -> Result<(), CoinrefError> {
     let db = coinref::establish_connection()?;
 
     println!("requesting coinmarketcap data...");
-    let cmc = coinmarketcap::ticker(1000, 0).map_err(|e|
+    let cmc = coinmarketcap::ticker(300, 0).map_err(|e|
         CoinrefError{ error_type: CoinrefErrorType::ImportError, message: e.message })?;
 
-    // println!("{:?}", cmc);
     let btc = &cmc.iter().find(|c| c.symbol == "BTC").unwrap();
-    let btc_mc = btc.market_cap_usd.unwrap();
-    // println!("{:?}", neo);
+    let btc_supply = btc.available_supply.unwrap();
+    let btc_price = btc.price_usd.unwrap();
 
     println!("importing data...");
     for path in paths {
         let filepath = path.unwrap().path();
         let filename = filepath.to_str().unwrap();
+        println!("reading {}", filename);
 
         match coinref::template::parse(filename) {
-            Ok(mut coin) => {
+            Ok(mut coin) => {                
                 if let Some(cmc_coin) = cmc.iter().find(|c| c.symbol == coin.symbol) {
                     println!("applying coinmarketcap data for {}", coin.symbol);
 
+                    let alt_price = cmc_coin.price_usd.unwrap();
+                    let alt_supply = cmc_coin.available_supply.unwrap();
+                    coin.growth_potential = Some(((btc_supply / alt_supply * btc_price) / alt_price) as f32);
+
                     if let Some(cap) = cmc_coin.market_cap_usd {
                         coin.market_cap_usd = Some(cap as f32);
-                        coin.growth_potential = Some((cap / btc_mc * 100_f64) as f32);
                     }
 
                     if let Some(btc) = cmc_coin.price_btc {

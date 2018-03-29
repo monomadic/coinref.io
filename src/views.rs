@@ -74,7 +74,7 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
                         td(class="name") {
                             a(href=coin.symbol.clone(), class="coin-summary") {: coin.name }
                         }
-                        td(class="growth_potential") {: (100. - coin.growth_potential.unwrap()) }
+                        td(class="growth_potential") {: format!("{:.0}x", coin.growth_potential.unwrap_or(0.0)) }
                         td(class="circulating_supply") {: ::separator::number(coin.circulating_supply) }
                         td(class="price_in_btc") {: ::separator::price_btc(coin.price_in_btc) }
                         td(class="price_in_usd") {: ::separator::price_dollar(coin.price_in_usd) }
