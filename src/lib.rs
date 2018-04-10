@@ -5,9 +5,6 @@ extern crate mount;
 extern crate templar;
 
 #[macro_use]
-extern crate diesel;
-
-#[macro_use]
 extern crate serde_derive;
 extern crate toml;
 
@@ -16,7 +13,8 @@ extern crate horrorshow;
 
 // use iron::prelude::*;
 
-pub mod schema;
+extern crate rusqlite;
+
 pub mod models;
 pub mod views;
 pub mod controllers;
@@ -25,9 +23,6 @@ pub mod error;
 
 mod separator;
 
-use diesel::prelude::*;
-use diesel::sqlite::SqliteConnection;
-
-pub fn establish_connection() -> Result<SqliteConnection, diesel::ConnectionError> {
-    Ok(SqliteConnection::establish("./database.sql")?)
-}
+// pub fn establish_connection() -> Result<SqliteConnection, diesel::ConnectionError> {
+//     Ok(SqliteConnection::establish("./database.sql")?)
+// }

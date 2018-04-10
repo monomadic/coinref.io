@@ -2,14 +2,132 @@ extern crate coinref;
 use coinref::error::*;
 
 extern crate coinmarketcap;
+extern crate rusqlite;
+
+pub struct Coin {
+    pub id: i32,
+    pub name: String,
+    pub symbol: String,
+}
 
 fn main() {
+    use std::path::Path;
+
     println!("Importing TOML pages...");
 
-    match read_pages() {
-        Ok(_) => println!("done."),
-        Err(e) => println!("error: {:?}", e),
+    let conn = rusqlite::Connection::open(Path::new("./database.sql"))
+        .expect("./database.sql failed to open");
+
+    conn.execute_batch("
+         DROP TABLE IF EXISTS coins;
+         DROP TABLE IF EXISTS tags;
+         DROP TABLE IF EXISTS coin_tags;
+    ").expect("error deleting databases");
+
+    conn.execute_batch("
+
+        CREATE TABLE coins (
+            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            name VARCHAR NOT NULL,
+            symbol VARCHAR NOT NULL,
+            website VARCHAR NOT NULL,
+            twitter VARCHAR,
+            reddit VARCHAR,
+            github VARCHAR,
+            telegram VARCHAR,
+            slack VARCHAR,
+            facebook VARCHAR,
+            youtube VARCHAR,
+            -- instagram VARCHAR,
+            -- pinterest VARCHAR,
+            -- discord VARCHAR,
+            market_cap_usd REAL,
+            market_cap_rank INTEGER,
+            circulating_supply INTEGER,
+            price_in_btc REAL,
+            price_in_usd REAL,
+            growth_potential REAL,
+            page TEXT NOT NULL DEFAULT ''
+        );
+
+        CREATE TABLE tags (
+            id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+            name VARCHAR NOT NULL
+        );
+
+        CREATE TABLE coin_tags (
+          coin_id INTEGER NOT NULL, 
+          tag_id INTEGER NOT NULL, 
+          PRIMARY KEY (coin_id, tag_id), 
+          FOREIGN KEY (coin_id) REFERENCES coins (id) ON DELETE CASCADE, 
+          FOREIGN KEY (tag_id) REFERENCES tags (id) ON DELETE CASCADE
+        );
+
+    ").expect("error regenerating databases");
+
+    for template in get_coin_templates().expect("coin templates could not be read") {
+        println!("{:?}", template);
+        conn.execute("INSERT INTO coins (name, symbol, website, twitter)
+                      VALUES (?1, ?2, ?3, ?4)",
+                      &[
+                        &template.name,
+                        &template.symbol,
+                        &template.website,
+                        &template.twitter,
+                      ])
+        .expect("coin failed to insert");
     }
+
+    // let mut select_coins = conn.prepare("SELECT name FROM coins;").expect("select from coin");
+
+    // let coins = select_coins.query_map(&[], |row| {
+    //     let name:String = row.get(0);
+    //     // println!("{}", name);
+    //     name
+    // }).expect("select coins to return valid entries");
+
+    let coins = coinref::models::Coin::all(&conn).expect("coins to be selected from the database");
+
+    println!("Successfully imported {} coins.", coins.len());
+
+    for coin in coins {
+        println!("{:?}", coin);
+    }
+
+    println!("getting BTC: {:?}", coinref::models::Coin::get(&conn, "BTC"));
+
+    // for coin in coins {
+    //     print!("{:?}, ", coin);
+    // };
+
+    // println!("{:?}", select_coins);
+
+    // let coint_coins = conn.execute("SELECT count(*) FROM coin;", &[]);
+    // println!("{:?}", coint_coins);
+
+    // conn.execute("
+    //     CREATE TABLE coins (
+    //         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    //         name VARCHAR NOT NULL,
+    //         symbol VARCHAR NOT NULL );
+    // ", &[]).expect("error thing");
+
+    // match read_pages() {
+    //     Ok(_) => println!("done."),
+    //     Err(e) => println!("error: {:?}", e),
+    // }
+}
+
+use coinref::template::CoinTemplate;
+fn get_coin_templates() -> Result<Vec<CoinTemplate>, CoinrefError> {
+    use std::fs;
+    let paths = fs::read_dir("data").unwrap();
+
+    paths.map(|path| {
+        let filepath = path.unwrap().path();
+        let filename = filepath.to_str().unwrap();
+        coinref::template::read(filename)
+    }).collect()
 }
 
 fn read_pages() -> Result<(), CoinrefError> {
