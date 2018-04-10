@@ -1,12 +1,9 @@
 use iron::prelude::*;
 use iron::status;
 use iron::headers::ContentType;
-
-use ::error::*;
-
 use rusqlite::Connection as DatabaseConnection;
 
-use rusqlite;
+use ::error::*;
 
 pub fn handle_request(result: Result<String, CoinrefError>) -> IronResult<Response> {
     match result {
@@ -25,34 +22,6 @@ pub fn handle_request(result: Result<String, CoinrefError>) -> IronResult<Respon
         })
     }
 }
-
-use iron::Error;
-// impl From<::diesel::ConnectionError> for CoinrefError {
-//     fn from(error: ::diesel::ConnectionError) -> Self {
-//         CoinrefError {
-//             error_type: CoinrefErrorType::DatabaseConnectionError,
-//             message: error.description().into(),
-//         }
-//     }
-// }
-
-// pub struct Handlers {
-//     // pub db: ::diesel::SqliteConnection,
-// }
-
-// impl Handlers {
-//     pub fn landing(&self, _req: &mut Request) -> IronResult<Response> {
-//         // let connection = ::establish_connection();
-//         let coins = ::models::all_coins(&self.db).unwrap();
-//         let view = ::views::landing(coins).unwrap();
-
-//         Ok(Response::with((
-//             ContentType::html().0,
-//             status::Ok,
-//             view,
-//         )))
-//     }
-// }
 
 pub fn landing(_req: &mut Request, db: &DatabaseConnection) -> Result<String, CoinrefError> {
     let coins = ::models::Coin::all(&db)?;
@@ -84,13 +53,4 @@ pub mod coin {
 
         Ok(body)
     }
-
-    // pub fn show(req: &mut Request, db: &DatabaseConnection) -> Result<String, CoinrefError> {
-    //     println!("\nGET {:?}", req);
-    //     let coin_symbol = req.extensions.get::<::router::Router>().unwrap().find("coin").unwrap();
-    //     let coin = ::models::get_coin(&db, coin_symbol)?;
-    //     let body = ::views::coin::show(coin)?;
-
-    //     Ok(body)
-    // }
 }

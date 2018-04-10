@@ -47,15 +47,6 @@ impl From<TemplarError> for CoinrefError {
     }
 }
 
-// impl From<::diesel::result::Error> for CoinrefError {
-//     fn from(error: ::diesel::result::Error) -> Self {
-//         CoinrefError {
-//             error_type: CoinrefErrorType::ImportError,
-//             message: format!("diesel error: {:?}", error),
-//         }
-//     }
-// }
-
 impl From<::templar::output::WriteError<CoinrefError>> for CoinrefError {
     fn from(error: ::templar::output::WriteError<CoinrefError>) -> Self {
 
