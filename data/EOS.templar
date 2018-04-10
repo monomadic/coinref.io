@@ -5,3 +5,5 @@ tags = ["dapp-platform"]
 
 ::
 
+ul
+    li https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md
