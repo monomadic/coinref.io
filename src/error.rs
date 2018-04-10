@@ -1,16 +1,18 @@
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub struct CoinrefError {
     pub error_type: CoinrefErrorType,
     pub message: String,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug)]
 pub enum CoinrefErrorType {
     ImportError,
     ViewError,
     APIError,
     InsertRecordError,
     DatabaseConnectionError,
+    DatabaseSelectError(String),
+    DatabaseError(::rusqlite::Error),
 }
 
 use std::error::Error;
@@ -25,6 +27,16 @@ impl Error for CoinrefError {
     fn description(&self) -> &str { &*self.message }
 }
 
+impl From<::rusqlite::Error> for CoinrefError {
+    fn from(error: ::rusqlite::Error) -> Self {
+        let error_message = error.description().into();
+        CoinrefError {
+            error_type: CoinrefErrorType::DatabaseError(error),
+            message: error_message,
+        }
+    }
+}
+
 use templar::parse::ParseError as TemplarError;
 impl From<TemplarError> for CoinrefError {
     fn from(error: TemplarError) -> Self {
@@ -35,14 +47,14 @@ impl From<TemplarError> for CoinrefError {
     }
 }
 
-impl From<::diesel::result::Error> for CoinrefError {
-    fn from(error: ::diesel::result::Error) -> Self {
-        CoinrefError {
-            error_type: CoinrefErrorType::ImportError,
-            message: format!("diesel error: {:?}", error),
-        }
-    }
-}
+// impl From<::diesel::result::Error> for CoinrefError {
+//     fn from(error: ::diesel::result::Error) -> Self {
+//         CoinrefError {
+//             error_type: CoinrefErrorType::ImportError,
+//             message: format!("diesel error: {:?}", error),
+//         }
+//     }
+// }
 
 impl From<::templar::output::WriteError<CoinrefError>> for CoinrefError {
     fn from(error: ::templar::output::WriteError<CoinrefError>) -> Self {

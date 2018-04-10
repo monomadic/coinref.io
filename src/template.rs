@@ -2,19 +2,19 @@ use templar;
 use toml;
 
 #[derive(Debug, Deserialize)]
-pub struct Config {
-    name:       String,
-    symbol:     String,
-    website:    String,
-    twitter:    Option<String>,
-    reddit:     Option<String>,
-    github:     Option<String>,
-    telegram:   Option<String>,
-    slack:      Option<String>,
-    facebook:   Option<String>,
-    youtube:    Option<String>,
-    tags:       Vec<String>,
-    skip:       Option<bool>,
+pub struct CoinTemplate {
+    pub name:       String,
+    pub symbol:     String,
+    pub website:    String,
+    pub twitter:    Option<String>,
+    pub reddit:     Option<String>,
+    pub github:     Option<String>,
+    pub telegram:   Option<String>,
+    pub slack:      Option<String>,
+    pub facebook:   Option<String>,
+    pub youtube:    Option<String>,
+    pub tags:       Vec<String>,
+    pub skip:       Option<bool>,
 }
 
 struct TemplarDirectiveHandler {}
@@ -53,6 +53,26 @@ impl templar::output::DirectiveHandler for TemplarDirectiveHandler {
             }
         }
     }
+}
+
+pub fn read(template_path: &str) -> Result<CoinTemplate, ::error::CoinrefError> {
+    let mut template = ::std::fs::File::open(template_path).expect("template file to open");
+    let mut bytebuffer = Vec::new();
+
+    template.read_to_end(&mut bytebuffer).expect("template file to read");
+
+    let file = String::from_utf8(bytebuffer).unwrap();
+    let s:Vec<&str> = file.split("::").collect();
+
+    if s.len() != 2 {
+        return Err(CoinrefError {
+            error_type: CoinrefErrorType::ImportError,
+            message: format!("No metadata found in toml file: {}", template_path),
+        });
+    }
+
+    Ok(extract_metadata(s.first().expect("metadata to read")).map_err(|e|
+        CoinrefError{ error_type: CoinrefErrorType::ImportError, message: e.message })?)
 }
 
 pub fn parse(template_path: &str) -> Result<::models::NewCoin, ::error::CoinrefError> {
@@ -113,8 +133,8 @@ impl From<::toml::de::Error> for ::error::CoinrefError {
     }
 }
 
-pub fn extract_metadata(toml_data: &str) -> Result<Config, ::error::CoinrefError> {
-    let toml:Config = toml::from_str(toml_data).map_err(|e|
+pub fn extract_metadata(toml_data: &str) -> Result<CoinTemplate, ::error::CoinrefError> {
+    let toml:CoinTemplate = toml::from_str(toml_data).map_err(|e|
         CoinrefError{ error_type: CoinrefErrorType::ImportError, message: format!("TOML error: {}", e) })?;
     Ok(toml)
 }

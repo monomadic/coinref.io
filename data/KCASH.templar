@@ -1,0 +1,20 @@
+name = "Kcash"
+symbol = "KCASH"
+website = ""
+tags = ["wallet"]
+encryption = "Customized SHA-512"
+
+::
+
+ul
+    li wallet service
+    li multi-blockchain platform
+
+h2 Whitepaper Review
+
+ul
+    li.con terribly written
+    li.con stolen images from square
+    li.con mentions 'no risk trades' instead of atomic swaps
+
+p "Through the customization of SHA512 encryption technology, the SHA512-ZERO encryption technology which is exclusively used by Kcash is developed to guarantee the data security of the Kcash network."

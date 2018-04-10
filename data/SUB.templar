@@ -1,0 +1,43 @@
+name = "Subtratum"
+symbol = "SUB"
+website = ""
+tags = ["speculative"]
+icoprice = 0.07
+launch = "2014-09-14"
+
+::
+
+h2 Notes
+
+ul
+    li whitepaper not updated since pre ICO.
+    li no github.
+    li nothing to show yet. purely speculative.
+    li gave a very lackluster presentation on 3.27.18.
+
+h2 Roadmap
+
+ol
+    li
+        strong 2017-2
+        span Whitepaper Released
+    li
+        strong 2017-8
+        span ICO sale
+    li
+        strong 2017-9
+        span Listed: Bittrex, Liqui, Binance, Yunbi
+    li
+        strong Q4 2017
+        span Substratum Network v1: SubstratumNove, Developer Toolkit, SubstratumStore, SubstratumDNS
+    li
+        strong 2018
+        span Substratum Network v2: CryptoPay, SubstratumBridge
+
+h2 External Sources
+
+ul
+    li
+        a href="https://www.youtube.com/watch?v=dJpsP0Yzcb4" Substratum SUBLOCC 3.27.18 - Dan Wiebe Presents SubstratumNode
+    li
+        a href="https://themerkle.com/putting-the-substratum-rumors-to-rest/" The Merkle - Putting the Substratum Rumors to Rest

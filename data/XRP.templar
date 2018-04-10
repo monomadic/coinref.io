@@ -1,9 +1,22 @@
 name = "XRP (Ripple)"
 symbol = "XRP"
 website = ""
-tags = ["dapp-platform"]
+tags = ["remittance"]
 
 ::
+
+p A currency conversion token utilised by Ripple Labs in their banking product, xRapid.
+
+ul
+    li private, proprietary database.
+    li entirely centralised.
+    li 60% of majority holdings owned by ripple labs.
+    li 100% premined.
+    li no mining, no staking, no holding incentives.
+    li you must permanently hold 20 tokens to activate a wallet.
+    li not anonymous, and in fact will require users to be bound to private identity in the future.
+    li token burn each time a transaction takes place.
+    li not a cryptocurrency.
 
 h2 Links
 ul
