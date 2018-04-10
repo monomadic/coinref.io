@@ -23,6 +23,6 @@ pub mod error;
 
 mod separator;
 
-// pub fn establish_connection() -> Result<SqliteConnection, diesel::ConnectionError> {
-//     Ok(SqliteConnection::establish("./database.sql")?)
-// }
+pub fn establish_connection() -> Result<rusqlite::Connection, ::error::CoinrefError> {
+    Ok(rusqlite::Connection::open(::std::path::Path::new("./database.sql"))?)
+}

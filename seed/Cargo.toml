@@ -1,0 +1,13 @@
+[package]
+name = "seed"
+version = "0.1.0"
+authors = ["Rob Saunders <rob@wearebrandnew.com>"]
+
+[dependencies]
+rusqlite = "0.13"
+coinmarketcap = { git = "https://github.com/robsaunders/coinmarketcap-rs" }
+coinref = { path = "../" }
+
+[[bin]]
+name = "seed"
+doc = false
