@@ -21,8 +21,8 @@ pub fn youtube_video(id: &str) -> String {
     }.into_string().expect("view compile: layout()")
 }
 
-pub fn layout(title: String, content: String) -> String {
-    return html! {
+pub fn layout(title: String, content: String) -> Result<String, CoinrefError> {
+    return Ok(html! {
         : ::horrorshow::helper::doctype::HTML;
         html {
             head {
@@ -33,7 +33,7 @@ pub fn layout(title: String, content: String) -> String {
             }
             body {: Raw(content) }
         }
-    }.into_string().expect("view compile: layout()")
+    }.into_string()?)
 }
 
 pub fn header() -> Result<String, CoinrefError> {
@@ -83,7 +83,7 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
                 }
             }
         }.into_string()?
-    ))
+    )?)
 }
 
 pub mod coin {
@@ -171,6 +171,6 @@ pub mod coin {
                     // }
                 }
             }.into_string()?
-        ))
+        )?)
     }
 }

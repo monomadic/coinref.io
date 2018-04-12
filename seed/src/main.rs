@@ -78,14 +78,6 @@ fn main() {
         .expect("coin failed to insert");
     }
 
-    // let mut select_coins = conn.prepare("SELECT name FROM coins;").expect("select from coin");
-
-    // let coins = select_coins.query_map(&[], |row| {
-    //     let name:String = row.get(0);
-    //     // println!("{}", name);
-    //     name
-    // }).expect("select coins to return valid entries");
-
     let coins = coinref::models::Coin::all(&conn).expect("coins to be selected from the database");
 
     println!("Successfully imported {} coins.", coins.len());
