@@ -26,6 +26,8 @@ pub struct Coin {
 
     pub page: String,
 
+    pub tags: Vec<String>,
+
     // pub news: Vec<NewsItem>,
 }
 
@@ -74,10 +76,12 @@ impl NewCoin {
 use rusqlite;
 impl Coin {
     pub fn all(db: &rusqlite::Connection) -> Result<Vec<Coin>, CoinrefError> {
-        let mut select_coins = db.prepare("SELECT * FROM coins").expect("select from coin");
-        let results: Result<Vec<Coin>, rusqlite::Error> = select_coins.query_map(&[], |row|
+        let mut query = db.prepare("SELECT * FROM coins").expect("select from coin");
+        let results: Result<Vec<Coin>, rusqlite::Error> = query.query_map(&[], |row| {
+            let id:i32 = row.get(0);
+
             Coin {
-                id: row.get(0),
+                id: id,
                 name: row.get(1),
                 symbol: row.get(2),
                 website: row.get(3),
@@ -95,16 +99,36 @@ impl Coin {
                 price_in_usd: None,
                 growth_potential: None,
                 page: "".to_string(),
+                tags: Coin::get_tags(&db, id).unwrap_or(vec![]),
             }
-        ).expect("select coins to return valid entries").collect();
+        }).expect("select coins to return valid entries").collect();
+        Ok(results.unwrap())
+    }
+// SELECT language FROM skills
+//   JOIN coder_skills ON skills.id = skill_id
+//   JOIN coders ON coder_id = coders.id
+//   WHERE name = "Joe";
+
+    pub fn get_tags(db: &rusqlite::Connection, id: i32) -> Result<Vec<String>, CoinrefError> {
+        let mut query = db.prepare("
+
+            SELECT * FROM tags
+                JOIN coin_tags ON tags.id = tag_id
+                    WHERE id = ?1
+
+        ")?;
+        let results: Result<Vec<String>, rusqlite::Error> = query.query_map(&[&id], |row| row.get(1))?.collect();
+
         Ok(results.unwrap())
     }
 
     pub fn get(db: &rusqlite::Connection, coin_symbol: &str) -> Result<Coin, CoinrefError> {
         let mut select_coin = db.prepare("SELECT * FROM coins WHERE symbol=?1 LIMIT 1").expect("select from coin");
         let coin:Coin = select_coin.query_row(&[&coin_symbol], |row| {
+            let id:i32 = row.get(0);
+
             Coin {
-                id: row.get(0),
+                id: id,
                 name: row.get(1),
                 symbol: row.get(2),
                 website: row.get(3),
@@ -122,6 +146,7 @@ impl Coin {
                 price_in_usd: None,
                 growth_potential: None,
                 page: "".to_string(),
+                tags: Coin::get_tags(&db, id).unwrap_or(vec![]),
             }
         }).expect("symbol not found");
 

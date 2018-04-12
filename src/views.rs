@@ -169,6 +169,12 @@ pub mod coin {
                     //         a(href=news.link, target="_newTab") {: news.link_name }
                     //     }
                     // }
+                    div(class="tag-list") {
+                        @ for tag in coin.tags {
+                            div(href=tag.clone(), target="_newTab", class="tag") {: tag }
+                        }
+                    }
+
                 }
             }.into_string()?
         )?)

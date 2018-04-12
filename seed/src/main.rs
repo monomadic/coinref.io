@@ -63,6 +63,10 @@ fn main() {
           FOREIGN KEY (tag_id) REFERENCES tags (id) ON DELETE CASCADE
         );
 
+        INSERT INTO tags (name) VALUES ('decentralised');
+        INSERT INTO tags (name) VALUES ('shitcoin');
+        INSERT INTO coin_tags (coin_id, tag_id) VALUES (1, 1);
+
     ").expect("error regenerating databases");
 
     for template in get_coin_templates().expect("coin templates could not be read") {
@@ -76,6 +80,8 @@ fn main() {
                         &template.twitter,
                       ])
         .expect("coin failed to insert");
+
+
     }
 
     let coins = coinref::models::Coin::all(&conn).expect("coins to be selected from the database");
