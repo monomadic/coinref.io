@@ -148,7 +148,7 @@ impl Coin {
                 page: "".to_string(),
                 tags: Coin::get_tags(&db, id).unwrap_or(vec![]),
             }
-        }).expect("symbol not found");
+        })?;
 
         Ok(coin)
     }
