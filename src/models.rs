@@ -112,9 +112,10 @@ impl Coin {
     pub fn get_tags(db: &rusqlite::Connection, id: i32) -> Result<Vec<String>, CoinrefError> {
         let mut query = db.prepare("
 
-            SELECT * FROM tags
-                JOIN coin_tags ON tags.id = tag_id
-                    WHERE id = ?1
+            SELECT * FROM tags t
+                LEFT JOIN coin_tags ct
+                ON ct.tag_id = t.id
+                WHERE ct.coin_id = ?1
 
         ")?;
         let results: Result<Vec<String>, rusqlite::Error> = query.query_map(&[&id], |row| row.get(1))?.collect();

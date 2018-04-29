@@ -29,7 +29,7 @@ fn main() {
         CREATE TABLE coins (
             id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
             name VARCHAR NOT NULL,
-            symbol VARCHAR NOT NULL,
+            symbol VARCHAR NOT NULL UNIQUE,
             website VARCHAR NOT NULL,
             twitter VARCHAR,
             reddit VARCHAR,
@@ -63,15 +63,11 @@ fn main() {
           FOREIGN KEY (tag_id) REFERENCES tags (id) ON DELETE CASCADE
         );
 
-        INSERT INTO tags (name) VALUES ('decentralised');
-        INSERT INTO tags (name) VALUES ('shitcoin');
-        INSERT INTO coin_tags (coin_id, tag_id) VALUES (1, 1);
-
     ").expect("error regenerating databases");
 
     for template in get_coin_templates().expect("coin templates could not be read") {
         println!("{:?}", template);
-        conn.execute("INSERT INTO coins (name, symbol, website, twitter)
+        let _ = conn.execute("INSERT INTO coins (name, symbol, website, twitter)
                       VALUES (?1, ?2, ?3, ?4)",
                       &[
                         &template.name,
@@ -81,7 +77,26 @@ fn main() {
                       ])
         .expect("coin failed to insert");
 
+        for tag in template.tags {
+            println!("found tag: {}", tag);
 
+            let _ = conn.execute("INSERT OR IGNORE INTO tags (name) VALUES (?1)", &[&tag,])
+                .expect(&format!("tag failed to insert: {}", tag));
+
+            let _id = conn.execute("INSERT INTO coin_tags (coin_id, tag_id)
+                            VALUES (
+                                (select id from coins where name = ?1),
+                                (select id from tags where name = ?2)
+                            )",
+                          &[
+                            &template.name,
+                            &tag,
+                          ])
+            .expect(&format!("tag failed to associate: {} with {}", tag, &template.name));
+
+            // println!("inserted tag: ({},{})", tag_id, coin_id);
+
+        }
     }
 
     let coins = coinref::models::Coin::all(&conn).expect("coins to be selected from the database");
