@@ -5,7 +5,7 @@ consensus = "PoI"
 telegram = "nemred"
 facebook = "ourNEM"
 twitter = "nemofficial"
-tags = [""]
+tags = []
 
 ::
 

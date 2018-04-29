@@ -2,7 +2,7 @@ name = "Cobinhood"
 symbol = "COB"
 website = "lisk.io"
 ignore = true
-tags = [""]
+tags = []
 
 ::
 

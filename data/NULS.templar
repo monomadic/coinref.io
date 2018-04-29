@@ -1,0 +1,13 @@
+name            = "Nuls"
+symbol          = "NULS"
+website         = "neo.org"
+reddit          = "nulsservice"
+tags            = ["proof-of-stake"]
+
+::
+
+h2 Staking
+ul
+    li minimum required for staking pool: 2000 nuls
+    li agent node: 20,000 nuls
+    li node: 200,000 nuls

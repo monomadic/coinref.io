@@ -1,7 +1,7 @@
 name = "Bancor"
 symbol = "BNT"
 website = "www.bancor.network"
-tags = [""]
+tags = []
 
 ::
 
