@@ -1,7 +1,7 @@
 name = "Bitcoin"
 symbol = "BTC"
 website = "bitcoin.org"
-tags = ["decentralised"]
+tags = ["currency"]
 
 ::
 

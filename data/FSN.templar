@@ -10,7 +10,9 @@ tags            = ["dapp-platform"]
 
 ::
 
-- no code yet
+ul
+    li.con no code yet
 
 h2 Team
-- Head developer DJ claimed the team has 20 developers.
+ul
+    li Head developer DJ claimed the team has 20 developers.

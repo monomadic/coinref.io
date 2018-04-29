@@ -82,6 +82,16 @@ li.con {
     line-height: 30px;
 }
 
+.margin-side-xs {
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
+.margin-vertical-s {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 ul {
     list-style: none;
     padding: 0;

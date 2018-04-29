@@ -104,11 +104,6 @@ pub mod coin {
                     div(class="coin big-coin") {    
                         img(src=format!("/static/icons/{}.png", coin.symbol), class="logo");
                     }
-                    h1 {: coin.name }
-                    div(class="symbol subheading") {: coin.symbol.clone() }
-                    div(class="website") {
-                        a(href=format!("https://{}", coin.website.clone()), target="_newTab") {: coin.website }
-                    }
                     div(class="media_links") {
                         @ if let Some(twitter) = coin.twitter.clone() {
                             a(href=format!("https://twitter.com/{}", twitter), target="_newTab", class="pill-link icon-twitter") {
@@ -160,6 +155,16 @@ pub mod coin {
                     }
                 }
                 article {
+                    h1 {: coin.name }
+                    div(class="symbol subheading") {: coin.symbol.clone() }
+                    div(class="website") {
+                        a(href=format!("https://{}", coin.website.clone()), target="_newTab") {: coin.website }
+                    }
+                    div(class="tag-list") {
+                        @ for tag in coin.tags {
+                            div(href=tag.clone(), target="_newTab", class="tag margin-side-xs margin-vertical-s") {: tag }
+                        }
+                    }
                     div(class="page") { : Raw(page_html) }
                     // div(class="page") { : Raw(coin.page) }
                     // h2 {: "Updates" }
@@ -169,11 +174,6 @@ pub mod coin {
                     //         a(href=news.link, target="_newTab") {: news.link_name }
                     //     }
                     // }
-                    div(class="tag-list") {
-                        @ for tag in coin.tags {
-                            div(href=tag.clone(), target="_newTab", class="tag") {: tag }
-                        }
-                    }
 
                 }
             }.into_string()?
