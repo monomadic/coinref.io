@@ -53,35 +53,48 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
         format!("coinref.io"),
         html! {
             : Raw(header);
-            table(class="coin-list") {
-                tr(class="heading") {
-                    th {: "Rank" }
-                    th(colspan="2") { }
-                    th {: "Growth Potential" }
-                    th {: "Supply" }
-                    th {: "Price (BTC)" }
-                    th {: "Price (USD)" }
-                    th {: "Cap" }
-                }
+            div(class="coin-grid grid") {
                 @ for coin in coins {
-                    tr(class="data", onclick=format!("location.href='/{}'", coin.symbol.clone())) {
-                        td(class="rank") {: coin.market_cap_rank }
-                        td(class="icon") {
+                    div(class="grid-item padding-s") {
+                        div(class="icon") {
                             div(class="coin") {
-                                img(src=format!("/static/icons/{}.png", coin.symbol));
+                                a(href=format!("/{}", coin.symbol)) {
+                                    img(src=format!("/static/icons/{}.png", coin.symbol));
+                                }
                             }
                         }
-                        td(class="name") {
-                            a(href=coin.symbol.clone(), class="coin-summary") {: coin.name }
-                        }
-                        td(class="growth_potential") {: format!("{:.0}x", coin.growth_potential.unwrap_or(0.0)) }
-                        td(class="circulating_supply") {: ::separator::number(coin.circulating_supply) }
-                        td(class="price_in_btc") {: ::separator::price_btc(coin.price_in_btc) }
-                        td(class="price_in_usd") {: ::separator::price_dollar(coin.price_in_usd) }
-                        td(class="cap") {: ::separator::number(coin.market_cap_usd) }
                     }
                 }
             }
+            // table(class="coin-list") {
+            //     tr(class="heading") {
+            //         th {: "Rank" }
+            //         th(colspan="2") { }
+            //         th {: "Growth Potential" }
+            //         th {: "Supply" }
+            //         th {: "Price (BTC)" }
+            //         th {: "Price (USD)" }
+            //         th {: "Cap" }
+            //     }
+            //     @ for coin in coins {
+            //         tr(class="data", onclick=format!("location.href='/{}'", coin.symbol.clone())) {
+            //             td(class="rank") {: coin.market_cap_rank }
+            //             td(class="icon") {
+            //                 div(class="coin") {
+            //                     img(src=format!("/static/icons/{}.png", coin.symbol));
+            //                 }
+            //             }
+            //             td(class="name") {
+            //                 a(href=coin.symbol.clone(), class="coin-summary") {: coin.name }
+            //             }
+            //             td(class="growth_potential") {: format!("{:.0}x", coin.growth_potential.unwrap_or(0.0)) }
+            //             td(class="circulating_supply") {: ::separator::number(coin.circulating_supply) }
+            //             td(class="price_in_btc") {: ::separator::price_btc(coin.price_in_btc) }
+            //             td(class="price_in_usd") {: ::separator::price_dollar(coin.price_in_usd) }
+            //             td(class="cap") {: ::separator::number(coin.market_cap_usd) }
+            //         }
+            //     }
+            // }
         }.into_string()?
     )?)
 }

@@ -68,6 +68,10 @@ a:link, a:visited {
     color: #9013FE;
 }
 
+.grid-item {
+    float: left;
+}
+
 li.pro {
     background: url('pro.png') no-repeat 0px 5px;
     background-size: 20px 20px;
@@ -80,6 +84,10 @@ li.con {
     background-size: 20px 20px;
     padding-left: 30px;
     line-height: 30px;
+}
+
+.padding-s {
+    margin: 5px;
 }
 
 .margin-side-xs {
