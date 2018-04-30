@@ -7,7 +7,7 @@ consensus = "DPoS"
 
 ::
 
-p Open sourced blockchain based around javascript. Applications are built on sidechains (similar to $SUB), so any problems with one blockchain won't affect others and require a hard fork.
+p Open sourced blockchain based around javascript. Applications are built on sidechains (similar to $STRAT), so any problems with one blockchain won't affect others and require a hard fork.
 
 h2 Links
 ul
