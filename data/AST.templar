@@ -1,0 +1,22 @@
+name            = "AirSwap"
+symbol          = "AST"
+website         = "airswap.io"
+tags            = ["dex", "trading", "exchange"]
+
+::
+
+h2 Features
+p ERC-20 trading platform.
+p Designed to be a simple user-friendly platform for direct (decentralised) trading of cryptocurrencies, not a fully fledged exchange. Works with metamask and ledger hardware wallets. Transactions take place on the Ethereum blockchain, so ethereum gas fees apply.
+
+p Ethereum does not support atomic swap natively, so AirSwap provides a layered protocol on top of the ethereum blockchain to swap tokens with no counterparty risk. Pricing information is mediated through use of an Oracle, and off-chain service that suggests a fair price between both parties.
+
+p AirSwap also offers dark pool trading. This reduces the ability for anyone to front run your orders (if a person A attempts to buy a large amount of a coin from person B, person B could accept the order but not pay it until he had increased his holdings in that coin, causing value to go up on person A's buy).
+
+h2 AST Value
+p A user may 'lock' (hold) an amount of AST tokens to use the AirSwap network without fees. 100 AST is required for membership. There is no benefit to holding more than 100 except for trading purposes.
+
+h2 Links
+ul
+    li
+        a href="https://swap.tech/whitepaper/" Whitepaper

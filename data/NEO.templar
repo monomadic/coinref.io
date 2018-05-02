@@ -7,13 +7,14 @@ facebook        = "NEOSmartEcon"
 reddit          = "NEO"
 github          = "neo-project"
 country         = "CN"
-tags            = []
+tags            = ["dBFT", "dPOS", "proof-of-stake"]
 
 ::
 
 p NEO is a chinese based dapp platform.
 
 ul
+    li - 1,000 tps (100,000 tps by 2020)
     li - 27 ICOs coming out in 2018
     li - pay dividends in GAS
     li - much smaller market cap than ADA or ETH (higher possibility of gains)

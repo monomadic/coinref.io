@@ -7,3 +7,4 @@ tags = ["dapp-platform"]
 
 ul
     li https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md
+    li 10,000 tps (100,000+ tps coming)

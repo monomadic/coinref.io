@@ -1,0 +1,20 @@
+name            = "Neo Gas"
+symbol          = "GAS"
+website         = "neo.org"
+coinmarketcap   = "neo"
+twitter         = "neo_blockchain"
+facebook        = "NEOSmartEcon"
+reddit          = "NEO"
+github          = "neo-project"
+country         = "CN"
+tags            = ["gas"]
+
+::
+
+ it's important to understand GAS. It's not just a dividend for NEO holders. There's a very, very good chance, almost a certainty, that if NEO does take off, GAS will become more commonly traded and more important than NEO itself. There's a few reasons for this.
+
+- most importantly, GAS pays for all the service fees on the blockchain, similar to ETH's gas. Any company or project that wishes to make changes or register tokens on the NEP-5 blockchain needs to pay, in GAS. When they pay, this GAS is burned forever, destroyed. Currently, the transaction fee for the NEO smart economy is zero. When the network expands, consensus nodes may introduce fees. This is likely to be temporary and only during periods of scarcity. This happened during ethereums ICO pump and it was called the 'gas wars'. If we have an ICO rush with NEO, there's a good chance GAS will become quite valuable as startup ICOs rush to buy it.
+
+- it is divisible, and NEO is not. when NEX launches, there will be pairings for NEO and GAS. Many will choose GAS because of its divisibility, and the ability to pay for the NEX api (like BNB) with GAS itself. You can't do this with NEO, as its not divisible.
+
+- instant swaps with gas (atomic swaps) mean that many of the dApps on the NEP-5 token will most likely use gas as a native currency. Say a dapp wants to work within the NEO ecosystem, and allow people with other dapps to interchange value, but doesn't know what coins they own. GAS is the currency most likely used, the NEO ecosystem is trying to encourage it as a trade mechanism.
