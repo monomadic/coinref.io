@@ -1,8 +1,8 @@
 name = "WaltonCoin"
 symbol = "WTC"
 website = ""
-tags = ["RFID"]
+tags = ["supply-chain-management"]
 
 ::
 
-p Chinese run RFID solution. Competitor to VEN.
+p Chinese run supply chain management solution.

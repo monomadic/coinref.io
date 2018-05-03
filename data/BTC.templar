@@ -1,11 +1,18 @@
 name = "Bitcoin"
 symbol = "BTC"
 website = "bitcoin.org"
-tags = ["currency"]
+tags = ["currency", "proof-of-work"]
 
 ::
 
 p The world's first decentralised digital currency.
 
 ul
-    li.pro extremely well established, the current market leader
+    li.pro extremely well established, the current market leader by a long way.
+    li.pro considered the most secure due to its age and infrequency of discovered vulnerabilities. 
+    li.pro no one leader or group controls bitcoin so it does not suffer from leadership centralisation.
+    li.pro very simple smart contract system so a very small attack surface.
+    li.con very slow compared to newer technologies, solutions to ameliorate this have been slow to progress as the infrastructure has a great deal of politics surrounding it.
+    li.con probably the least anonymous coin; many governments completely understand the public blockchain and it is reasonable to assume nothing performed on the blockchain could be considered untracked.
+    li.con fees are a continual battle. This is much better of late, but as demand increases, fees increase.
+    li.con there are theoretical attacks such as "frisbee on the roof" which apply to most PoW currencies, but these have yet to become a problem and may never be an issue.

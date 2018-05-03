@@ -36,7 +36,7 @@ ul
     li.con AI module released, but only 2 commits, way back in feb 2018.
     li.con Data module released, 7 commits, 1 contributor, barely updated.
     li.con Code is absolutely terribly written. 
-    li.con No coding style. 
+    li.con No coding style.
     li.con No understanding of source control. 
     li.con Terrible understanding of program structure. 
     li.con Printlines scattered throughout.
@@ -44,4 +44,4 @@ ul
 h2 Opinion
 p This project seems to be aimed at retail investors and their development skills are either non existent or hidden or deprioritised to the point that they are invisible. They need to provide this information and prove themselves a worthwhile investment. It's a large project with large goals in mind. It really needs a developer-heavy voice if it wants to tackle the current new-blockchain heavyweights.
 
-p It's a hand wavey business guy project. These sometimes do well for a while, while they market heavily, and then have a long, slow curve into obsolescence. If you compare this project with other frontrunners in the complex-blockchain space, such as Cardano, the academic / technical innovations are open and championed, and that's what this kind of project needs. Judging by the terribly written code, though, they don't care about that.
+p It's a hand wavey business guy project. These sometimes do well for a while, while they market heavily, and then have a long, slow curve into obsolescence. If you compare this project with other frontrunners in the complex-blockchain space, such as Cardano, the academic / technical innovations are open and championed, and that's what this kind of project needs. Judging by the terribly written source, though, they don't care about that.

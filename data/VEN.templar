@@ -1,7 +1,7 @@
 name = "VeChain"
 symbol = "VEN"
 website = ""
-tags = []
+tags = ["supply-chain-management"]
 
 ::
 
