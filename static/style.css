@@ -68,6 +68,23 @@ a:link, a:visited {
     color: #9013FE;
 }
 
+.full-width {
+    width: 100%;
+}
+
+.clear {
+    clear: both;
+}
+
+.grid {
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.grid-heading {
+    margin: 10px 0;
+}
+
 .grid-item {
     float: left;
 }

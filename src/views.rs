@@ -53,7 +53,23 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
         format!("coinref.io"),
         html! {
             : Raw(header);
-            div(class="coin-grid grid") {
+            // @ for category in ["social", "wallet"].iter() {
+            //     div(class="coin-grid grid clear") {
+            //         div(class="grid-heading") {: category }
+            //         @ for coin in coins.iter().filter(|c| c.tags.contains(&category.to_string())) {
+            //             div(class="grid-item padding-s") {
+            //                 div(class="icon") {
+            //                     div(class="coin") {
+            //                         a(href=format!("/{}", coin.symbol)) {
+            //                             img(src=format!("/static/icons/{}.png", coin.symbol));
+            //                         }
+            //                     }
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }
+            div(class="coin-grid grid clear") {
                 @ for coin in coins {
                     div(class="grid-item padding-s") {
                         div(class="icon") {
