@@ -29,6 +29,13 @@ pub fn landing(_req: &mut Request, db: &DatabaseConnection) -> Result<String, Co
     Ok(view)
 }
 
+pub fn filter_by_tag(req: &mut Request, db: &DatabaseConnection) -> Result<String, CoinrefError> {
+    let tag = req.extensions.get::<::router::Router>().unwrap().find("tag").unwrap();
+    let coins = ::models::Coin::all(&db)?;
+    let view = ::views::landing(coins.into_iter().filter(|c| c.tags.contains(&tag.to_string())).collect())?;
+    Ok(view)
+}
+
 // pub fn search(_req: &mut Request) -> IronResult<Response> {
 //     let connection = ::establish_connection().expect("db connection error");
 //     let coins = ::models::all_coins(&connection).unwrap();

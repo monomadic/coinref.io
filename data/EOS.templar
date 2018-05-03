@@ -1,7 +1,7 @@
 name = "EOS"
 symbol = "EOS"
 website = ""
-tags = ["dapp-platform"]
+tags = ["dapp-platform", "proof-of-stake"]
 
 ::
 

@@ -191,7 +191,7 @@ pub mod coin {
                     }
                     div(class="tag-list") {
                         @ for tag in coin.tags {
-                            div(href=tag.clone(), target="_newTab", class="tag margin-side-xs margin-vertical-s") {: tag }
+                            a(href=format!("/tag/{}", tag.clone()), target="_newTab", class="tag margin-side-xs margin-vertical-s") {: tag }
                         }
                     }
                     div(class="page") { : Raw(page_html) }

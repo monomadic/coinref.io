@@ -30,6 +30,12 @@ fn main() {
             coinref::controllers::coin::show(r, &db_coin.lock().unwrap()))
     }, "coin");
 
+    let db_by_tag = db.clone();
+    router.get("/tag/:tag", move |r: &mut Request| {
+        coinref::controllers::handle_request(
+            coinref::controllers::filter_by_tag(r, &db_by_tag.lock().unwrap()))
+    }, "filter_by_tag");
+
     mount.mount("/", router);
 
     // static mount
