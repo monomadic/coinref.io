@@ -1,0 +1,47 @@
+name            = "Apex"
+symbol          = "CPX"
+website         = "cpxcoin.info"
+tags            = ["payment", "dpos", "proof-of-stake"]
+github          = "APEX-Network"
+
+::
+
+p Apex is a delegated proof of stake blockchain designed to be used as a b2b dapp platform. It's claim for differentiation is based on separating the smart contracts into three layers - data, logic, and middleware. This feels very similar in spirit to software design methologies like MVC.
+
+p Currently it uses NEP-5 as an ICO token, which will be directly redeemable for CPX tokens on the Apex Mainnet upon release. It has nothing to do with NEO or its ecosystem outside of this, but some media is marketing the fact that it is a NEP-5 token as something special, which is worrying. People may buy thinking it has some connection.
+
+h3 Deliverables
+ul
+    li Blockchain mainnet
+    li Wallets apparently for at least iOS (shown in screenshot mockups)
+    li Decentralised exchange with CPX token being the liquidity mechanism (possibly built into the wallets?). There is vague mention of the ability for certain corporates to bypass this liquidity mechanism or provide custom exchange rates but no details on how this will be achieved.
+
+h2 Whitepaper
+p
+    a href="http://cdn.chinapex.com.cn/med/videos/to/APEX-Development-Plan-eng.pdf" APEX-Development-Plan-eng.pdf
+ul
+    li.con It's not a whitepaper. It's a polished, slick, over-designed business plan full of stock photography and branding aimed at retail investors.
+
+h2 Team / Advisors
+ul
+    li Massive china-based team.
+    li Heavyweight investors.
+    li No mention of the development team. Why? Given the state of the codebase, this is worrying. They don't value the code itself. Red flag.
+    li Many many vague mentions to features like gamification, engagement mechanisms, and artificial intelligence with no detail on these very large and ambitious sectors of the crypto industry. Other people are already all over this space doing it in far more detail and focusing on doing one thing well. Apex does many things poorly. The artificial intelligence section is absolutely just thrown in to impress with no detail whatsoever.
+
+h2 Code Review
+p Summary: POOR / Almost non-existent.
+ul
+    li.pro written in Scala
+    li.con AI module released, but only 2 commits, way back in feb 2018.
+    li.con Data module released, 7 commits, 1 contributor, barely updated.
+    li.con Code is absolutely terribly written. 
+    li.con No coding style. 
+    li.con No understanding of source control. 
+    li.con Terrible understanding of program structure. 
+    li.con Printlines scattered throughout.
+
+h2 Opinion
+p This project seems to be aimed at retail investors and their development skills are either non existent or hidden or deprioritised to the point that they are invisible. They need to provide this information and prove themselves a worthwhile investment. It's a large project with large goals in mind. It really needs a developer-heavy voice if it wants to tackle the current new-blockchain heavyweights.
+
+p It's a hand wavey business guy project. These sometimes do well for a while, while they market heavily, and then have a long, slow curve into obsolescence.
