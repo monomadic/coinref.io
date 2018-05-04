@@ -7,7 +7,7 @@ facebook        = "NEOSmartEcon"
 reddit          = "NEO"
 github          = "neo-project"
 country         = "CN"
-tags            = ["dBFT", "dPOS", "proof-of-stake"]
+tags            = ["dBFT", "dPOS", "proof-of-stake", "distributed-byzantine-fault-tolerance", "NEP-5"]
 
 ::
 

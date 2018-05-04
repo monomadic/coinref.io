@@ -2,12 +2,33 @@ name            = "Nuls"
 symbol          = "NULS"
 website         = "neo.org"
 reddit          = "nulsservice"
-tags            = ["proof-of-stake"]
+tags            = ["ERC20", "dapp-platform", "proof-of-credit"]
 
 ::
 
+p NULS is a dApp platform that attempts to reduce the learning curve required to produce blockchain applications. It attempts to solve current complexity with a highly modular model, separating its design into two parts - the microkernel and functional modules. It attempts to allow to developer to abstract away complex parts of blockchain development such as consensus, cryptography, and storage methods. A developer can pick and choose modules to simplify development or they can choose to extend their own. A subchain could feasibly, for example, have a proof of work blockchain consensus mechanism running on top of the proof of credit system.
+
+h2 Concensus Mechanism
+
+p Similar to proof of stake, a minimum number of NULS are locked to run a node. The difference is each node has a 'credit score' which is affected by violating or adhering to network rules. Disconnections, network issues, hostile attacks, etc all can result in downgraded credit or forced token locks depending on severity.
+
 h2 Staking
+
+p Staking reward is determined by amount of NULS held and the credit rating of the participating node.
+
 ul
     li minimum required for staking pool: 2000 nuls
     li agent node: 20,000 nuls
     li node: 200,000 nuls
+
+h2 Economic Model
+
+ul
+    li 40% - airdropped to owners of the ERC20 token.
+    li 20% - development costs. unlocked at 5% per month once mainnet launches (may 2018)
+    li 20% - community building. unlocked at 20% per year, but not all will be spent each year.
+    li 20% - business partnerships.
+
+h2 Development
+
+p All smart contracts are executed via the NULSVM module. There is planned support for several high level languages to target this module, exactly which has not been disclosed by the team.

@@ -5,12 +5,13 @@ tags = ["centralised", "proof-of-stake", "cross-blockchain-interoperability"]
 
 ::
 
+p Korean dapp and ico blockchain based around inter-blockchain communication.
+
 ul
     li verification network on a blockchain
     li south koreas first ICO - the NEO of south korea
     li working product, actively used (by who?)
     li open source
-    li competes with ETH, NEO, QTUM, who are well established, large players (but more generalised)
 
 h2 Pros
 ul

@@ -1,8 +1,8 @@
 name = "Cobinhood"
 symbol = "COB"
-website = "lisk.io"
+website = "cobinhood.com"
 ignore = true
-tags = []
+tags = ["ERC20", "exchange"]
 
 ::
 

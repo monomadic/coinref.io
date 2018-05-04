@@ -1,4 +1,4 @@
-name            = "Neo Gas"
+name            = "NeoGas"
 symbol          = "GAS"
 website         = "neo.org"
 coinmarketcap   = "neo"
@@ -7,7 +7,7 @@ facebook        = "NEOSmartEcon"
 reddit          = "NEO"
 github          = "neo-project"
 country         = "CN"
-tags            = ["gas"]
+tags            = ["gas", "NEP-5"]
 
 ::
 

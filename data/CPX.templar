@@ -1,7 +1,7 @@
 name            = "Apex"
 symbol          = "CPX"
 website         = "cpxcoin.info"
-tags            = ["payment", "dpos", "proof-of-stake"]
+tags            = ["dPOS", "payment", "dpos", "proof-of-stake", "wallet", "NEP-5"]
 github          = "APEX-Network"
 
 ::

@@ -1,7 +1,7 @@
 name = "Nano"
 symbol = "NANO"
 website = "nano.org"
-tags = []
+tags = ["block-lattice", "proof-of-stake", "dPOS"]
 
 ::
 

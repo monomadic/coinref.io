@@ -7,7 +7,7 @@ facebook        = "ethereumproject"
 reddit          = "ethereum"
 youtube         = "ethereumproject"
 github          = "ethereum"
-tags            = ["dapp-platform"]
+tags            = ["ERC20", "dapp-platform"]
 
 ::
 

@@ -1,6 +1,6 @@
 name = "Ontology"
 symbol = "ONT"
 website = ""
-tags = ["proof-of-stake", "verified-byzantine-fault-tolerance"]
+tags = ["NEP-5", "dBFT", "dPOS", "proof-of-stake", "verified-byzantine-fault-tolerance"]
 
 ::
