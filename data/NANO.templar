@@ -8,15 +8,14 @@ tags = ["block-lattice", "proof-of-stake", "dPOS"]
 p Currency designed to compete directly with bitcoin and ripple. 7000+ transactions per second, zero fees.
 p It uses a DAG (directed acyclic graph) instead of a blockchain.
 
-.tag-list
-    .tag decentralised
-
 h2 Vitals
 ul
-    li.pro decentralised
-    li.con has been extremely difficult for exchanges to implement
-    li.con a previous exchange that carried XRB, <a href="https://mercatox.com/">mercatox</a>, has been extremely poor with returning customers XRB.
+    li.pro highly decentralised due to faucet distribution
+    li.con nodes have been extremely difficult for exchanges to implement, causing downtime of withdrawals
+    li.con early investors were burned by buying from the BitGrail exchange, in one of the largest cases of incompetence and/or theft in cryptocurrency history.
     li.con no smart contracts, so it can never have privacy or off-chain transactions.
+    li.pro but on the other hand, it has even less danger of being classed as a security, ever.
+    li.con other currencies are catching up or surpassing the tps advantages of nano, and some such as NEO and EOS are even feeless, diminishing the need for NANO's existence.
 
 h2 Closest Competitors
 ul
