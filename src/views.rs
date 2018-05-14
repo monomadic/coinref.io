@@ -31,7 +31,7 @@ pub fn layout(title: String, content: String) -> Result<String, CoinrefError> {
                 link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto+Mono");
                 link(rel="icon", type="image/png", href="/static/favicon.png");
             }
-            body {: Raw(content) }
+            body(class="desktop-constrain") {: Raw(content) }
         }
     }.into_string()?)
 }
@@ -41,7 +41,7 @@ pub fn header() -> Result<String, CoinrefError> {
         header {
             // : Raw(youtube_video("5PsQPpFgvu4"));
             a(href="/") { img(src="/static/logo.png", height="31px") }
-            : "crypto research reports"
+            span(class="no-wrap") {: "crypto research reports" }
         }
     }.into_string()?)
 }

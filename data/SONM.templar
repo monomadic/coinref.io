@@ -1,0 +1,9 @@
+name            = "SONM"
+symbol          = "SNM"
+website         = ""
+tags            = ["passive-income"]
+
+::
+
+li 1000 tps
+
