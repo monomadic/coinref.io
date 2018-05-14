@@ -44,6 +44,9 @@ fn main() {
 
     // launch server
     println!("launching server at http://localhost:9000/");
-    iron::Iron::new(mount).http("localhost:9000").unwrap();
-    println!("done.");
+
+    match iron::Iron::new(mount).http("localhost:9000") {
+        Ok(_) => println!("server running ok."),
+        Err(e) => println!("error: {}", e),
+    };
 }

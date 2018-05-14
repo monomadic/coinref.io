@@ -4,3 +4,8 @@ website = ""
 tags = ["NEP-5", "dBFT", "dPOS", "proof-of-stake", "verified-byzantine-fault-tolerance"]
 
 ::
+
+li ONT will release ONG as a residual GAS-like reward for staking, only once the mainnet goes live.
+
+h2 Roadmap
+li Q2 2018 - Mainnet

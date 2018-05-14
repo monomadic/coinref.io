@@ -1,0 +1,25 @@
+name = "Holo"
+symbol = "HOLO"
+website = "holochain.org"
+tags = ["ERC20", "web"]
+
+::
+
+p Holo is a platform that attempts to host the web on blockchain, though this difficult to decipher from much of the marketing material. Hosts are paid for hosting in Holo Fuel, which is presumably a token residing on a holo mainnet (though there are no direct plans for mainnet mentioned anywhere in their papers, just alpha and beta tests).
+
+h2 Technicals
+ul
+    li dApps are built in javascript or lisp.
+
+h2 Tokenomics
+p Sale agreement similar to EOS - from the greenpaper: As of the date of publication of this green paper, Holo’s ERC-20 Tokens have no known or   intended future use". While this may just be 'protecting' themselves it is highly legally dubious and means investors have essentially no rights at all.
+
+h2 Roadmap
+ul
+    li 2018 Q1: ICO Launch
+    li 2018 Q2: Mainnet Alpha (holochain)
+    li 2018 Q3: Holoports Launch, Holochain Alpha 3, several services shipped.
+    li 2018 Q4: Holochain Beta
+
+h2 Opinion
+p Bad greenpaper, meatless whitepaper. Lots of smoke and mirrors when they could just explain what they're trying to do - host web apps. It is a direct competitor to something like oyster pearl, with very poor, hand-wavey marketing messages. Nice branding, good series of websites and at least they do eventually explain their plan instead of being super vague. But the fact that they are following an EOS style "we don't owe you anything" approach, with no direct plans for mainnet at all, means they could end up following the EOS pattern of dumping source on people with a worthless ERC20 token. I would wait before investing in this.

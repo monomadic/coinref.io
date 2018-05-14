@@ -71,12 +71,10 @@ pub fn landing(coins: Vec<::models::Coin>) -> Result<String, CoinrefError> {
             // }
             div(class="coin-grid grid clear") {
                 @ for coin in coins {
-                    div(class="grid-item padding-s") {
+                    div(class="coin grid-item padding-s", data-symbol=coin.symbol.clone()) {
                         div(class="icon") {
-                            div(class="coin") {
-                                a(href=format!("/{}", coin.symbol)) {
-                                    img(src=format!("/static/icons/{}.png", coin.symbol));
-                                }
+                            a(href=format!("/{}", coin.symbol.clone())) {
+                                img(src=format!("/static/icons/{}.png", coin.symbol.clone()));
                             }
                         }
                     }
