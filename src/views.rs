@@ -27,11 +27,17 @@ pub fn layout(title: String, content: String) -> Result<String, CoinrefError> {
         html {
             head {
                 title {: title }
+
+                meta(http-equiv="X-UA-Compatible", content="chrome=1");
+                meta(name="viewport", content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=0");
+                meta(name="apple-touch-fullscreen", content="yes");
+                meta(name="apple-mobile-web-app-capable", content="yes");
+
                 link(rel="stylesheet", type="text/css", href="/static/style.css?v=2", media="all");
                 link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto+Mono");
                 link(rel="icon", type="image/png", href="/static/favicon.png");
             }
-            body(class="desktop-constrain") {: Raw(content) }
+            body(class="desktop-constrain padding-horizontal-m") {: Raw(content) }
         }
     }.into_string()?)
 }
@@ -127,7 +133,7 @@ pub mod coin {
             format!("coinref.io - {}", coin.name),
             html! {
                 : Raw(header);
-                aside {
+                aside(class="desktop-only") {
                     div(class="coin big-coin") {    
                         img(src=format!("/static/icons/{}.png", coin.symbol), class="logo");
                     }
@@ -182,7 +188,12 @@ pub mod coin {
                     }
                 }
                 article {
-                    h1 {: coin.name }
+                    div(class="coin big-coin mobile-only") {    
+                        img(src=format!("/static/icons/{}.png", coin.symbol.clone()), class="logo center")
+                    }
+                    h1 {
+                        : coin.name
+                    }
                     div(class="symbol subheading") {: coin.symbol.clone() }
                     div(class="website") {
                         a(href=format!("https://{}", coin.website.clone()), target="_newTab") {: coin.website }
@@ -192,7 +203,7 @@ pub mod coin {
                             a(href=format!("/tag/{}", tag.clone()), target="_newTab", class="tag margin-side-xs margin-vertical-s") {: tag }
                         }
                     }
-                    div(class="page") { : Raw(page_html) }
+                    div(class="page") {: Raw(page_html) }
                     // div(class="page") { : Raw(coin.page) }
                     // h2 {: "Updates" }
                     // @ for news in coin.news {

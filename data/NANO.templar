@@ -5,16 +5,19 @@ tags = ["block-lattice", "proof-of-stake", "dPOS"]
 
 ::
 
-p Currency designed to compete directly with bitcoin and ripple. 7000+ transactions per second, zero fees.
-p It uses a DAG (directed acyclic graph) instead of a blockchain.
+p Currency designed to compete directly with bitcoin and ripple. Estimated 7000+ transactions per second (approximated, though has not been acceptably achieved), zero fees.
 
-h2 Vitals
+p It uses a DAG (directed acyclic graph) instead of a blockchain, which has several tradeoffs and advantages.
+
+p Nano has no smart contracts, it is purely a currency. It can never transact off-chain.
+
+h2 Tokenomics
 ul
     li.pro highly decentralised due to faucet distribution
-    li.con nodes have been extremely difficult for exchanges to implement, causing downtime of withdrawals
+
+h2 Issues
+    li.con nodes have been extremely difficult for exchanges to implement, causing downtime of withdrawals. There has been a long history of problematic integrations.
     li.con early investors were burned by buying from the BitGrail exchange, in one of the largest cases of incompetence and/or theft in cryptocurrency history.
-    li.con no smart contracts, so it can never have privacy or off-chain transactions.
-    li.pro but on the other hand, it has even less danger of being classed as a security, ever.
     li.con other currencies are catching up or surpassing the tps advantages of nano, and some such as NEO and EOS are even feeless, diminishing the need for NANO's existence.
 
 h2 Closest Competitors

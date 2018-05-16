@@ -15,8 +15,20 @@ ul {
 .clear {
   clear: both; }
 
+.center {
+  margin-left: auto !important;
+  margin-right: auto !important; }
+
 .full-width {
   width: 100%; }
+
+.padding-horizontal-s {
+  padding-left: 10px;
+  padding-right: 10px; }
+
+.padding-horizontal-m {
+  padding-left: 20px;
+  padding-right: 20px; }
 
 .margin-vertical-s {
   margin-top: 10px;
@@ -72,9 +84,12 @@ ul {
 .no-wrap {
   white-space: nowrap; }
 
-body {
-  margin: 10px; }
-
+@media (min-width: 376px) {
+  .mobile-only {
+    display: none; } }
+@media (max-width: 376px) {
+  .desktop-only {
+    display: none; } }
 header {
   border-bottom: 1px solid #EEE;
   margin-bottom: 40px;
@@ -91,14 +106,14 @@ aside {
   width: 100%;
   max-width: 180px;
   float: left;
-  overflow: hidden;
-  padding: 10px; }
+  overflow: hidden; }
 
 article {
-  width: 100%;
-  float: left;
-  max-width: 740px;
-  padding: 10px; }
+  max-width: 740px; }
+  @media (min-width: 376px) {
+    article {
+      padding: 10px;
+      margin-left: 180px; } }
 
 body {
   font-family: "Roboto Mono", monospace;
@@ -122,7 +137,7 @@ p {
 a:link, a:visited {
   color: #9013FE; }
 
-li {
+ul li {
   padding-left: 30px;
   line-height: 30px;
   background: url("li.png") left 5px/20px 20px no-repeat; }
@@ -158,68 +173,8 @@ li.con {
 .icon-instagram:before {
   content: ""; }
 
-.icon-8:before {
-  content: ""; }
-
-.icon-app:before {
-  content: ""; }
-
-.icon-arrow-down:before {
-  content: ""; }
-
-.icon-arrow-up:before {
-  content: ""; }
-
-.icon-11:before {
-  content: ""; }
-
-.icon-donate:before {
-  content: ""; }
-
 .icon-facebook:before {
   content: ""; }
-
-.icon-github:before {
-  content: ""; }
-
-.icon-google:before {
-  content: ""; }
-
-.icon-hamburger-circle:before {
-  content: ""; }
-
-.icon-linkedin:before {
-  content: ""; }
-
-.icon-list:before {
-  content: ""; }
-
-.icon-more:before {
-  content: ""; }
-
-.icon-pan:before {
-  content: ""; }
-
-.icon-pdf:before {
-  content: ""; }
-
-.icon-pinterest:before {
-  content: ""; }
-
-.icon-play:before {
-  content: ""; }
-
-.icon-plus:before {
-  content: ""; }
-
-.icon-pouse:before {
-  content: ""; }
-
-.icon-tag-icon:before {
-  content: ""; }
-
-.icon-10:before {
-  content: ""; }
 
 .icon-twitter:before {
   content: ""; }

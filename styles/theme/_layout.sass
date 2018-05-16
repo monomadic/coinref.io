@@ -1,27 +1,25 @@
-body
-    margin: $base
+$sidebar-width: 180px
 
-header 
+header
     border-bottom: 1px solid #EEE
     margin-bottom: 40px
     height: 120px
     letter-spacing: 0.15em
     font-size: 16px
 
-header img 
+header img
     margin-top: 42px
     margin-right: 20px
 
-aside 
+aside
     display: border-box
     width: 100%
-    max-width: 180px
+    max-width: $sidebar-width
     float: left
     overflow: hidden
-    padding: 10px
 
-article 
-    width: 100%
-    float: left
+article
     max-width: 740px
-    padding: 10px
+    @media (min-width: $mobile-width)
+        padding: $base
+        margin-left: $sidebar-width
