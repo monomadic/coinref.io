@@ -84,10 +84,10 @@ ul {
 .no-wrap {
   white-space: nowrap; }
 
-@media (min-width: 376px) {
+@media (min-width: 450px) {
   .mobile-only {
     display: none; } }
-@media (max-width: 376px) {
+@media (max-width: 450px) {
   .desktop-only {
     display: none; } }
 header {
@@ -110,7 +110,7 @@ aside {
 
 article {
   max-width: 740px; }
-  @media (min-width: 376px) {
+  @media (min-width: 450px) {
     article {
       padding: 10px;
       margin-left: 180px; } }
