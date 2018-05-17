@@ -33,7 +33,7 @@ pub fn layout(title: String, content: String) -> Result<String, CoinrefError> {
                 meta(name="apple-touch-fullscreen", content="yes");
                 meta(name="apple-mobile-web-app-capable", content="yes");
 
-                link(rel="stylesheet", type="text/css", href="/static/style.css?v=2", media="all");
+                link(rel="stylesheet", type="text/css", href="/static/style.css?v=3", media="all");
                 link(rel="stylesheet", href="https://fonts.googleapis.com/css?family=Roboto+Mono");
                 link(rel="icon", type="image/png", href="/static/favicon.png");
             }
