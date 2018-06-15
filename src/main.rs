@@ -10,6 +10,9 @@ use iron::prelude::*;
 use std::sync::{Arc, Mutex};
 
 fn main() {
+    use coinref::controllers;
+    use coinref::controllers::handle_request;
+
     let mut router = router::Router::new();
     let mut mount = mount::Mount::new();
 
@@ -20,20 +23,17 @@ fn main() {
 
     let db_root = db.clone();
     router.get("/", move |r: &mut Request| {
-        coinref::controllers::handle_request(
-            coinref::controllers::landing(r, &db_root.lock().unwrap()))
+        handle_request(controllers::landing(r, &db_root.lock().unwrap()))
     }, "index");
 
     let db_coin = db.clone();
     router.get("/:coin", move |r: &mut Request| {
-        coinref::controllers::handle_request(
-            coinref::controllers::coin::show(r, &db_coin.lock().unwrap()))
+        handle_request(controllers::coin::show(r, &db_coin.lock().unwrap()))
     }, "coin");
 
     let db_by_tag = db.clone();
     router.get("/tag/:tag", move |r: &mut Request| {
-        coinref::controllers::handle_request(
-            coinref::controllers::filter_by_tag(r, &db_by_tag.lock().unwrap()))
+        handle_request(controllers::filter_by_tag(r, &db_by_tag.lock().unwrap()))
     }, "filter_by_tag");
 
     mount.mount("/", router);
