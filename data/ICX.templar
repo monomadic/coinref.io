@@ -7,6 +7,12 @@ tags = ["centralised", "proof-of-stake", "cross-blockchain-interoperability"]
 
 p Korean dapp and ico blockchain based around inter-blockchain communication.
 
+h2 Loopchain Technology
+p Allows multiple blockchains to talk to each other. For example, an insurance company running its own blockchain could talk to a hospitals blockchain requesting patient data or verifying treatments carried out.
+
+h2 DaVinci Labs AI
+p Icon blockchains have an artificial intelligence component which assesses risk in the banking and financial sector. Some banks in South Korea are already using this technology outside of Icon.
+
 ul
     li verification network on a blockchain
     li south koreas first ICO - the NEO of south korea

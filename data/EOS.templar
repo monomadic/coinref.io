@@ -6,5 +6,11 @@ tags = ["dapp-platform", "proof-of-stake"]
 ::
 
 ul
-    li https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md
+    li
+        a href="https://github.com/EOSIO/Documentation/blob/master/TechnicalWhitePaper.md" White Paper
     li 10,000 tps (100,000+ tps coming)
+
+h2 Links
+ul
+    li
+        a href="https://medium.com/@CryptoPeterG/eos-centralization-problem-bd7a392eeed2" Medium: EOS centralization problem

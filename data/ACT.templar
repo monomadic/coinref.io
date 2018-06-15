@@ -1,8 +1,13 @@
 name            = "Achain"
 symbol          = "ACT"
 website         = ""
-tags            = ["passive-income"]
+tags            = ["passive-income", "dpos", "proof-of-stake"]
 
 ::
 
-li 1000 tps
+p Achain is a smart contract blockchain with a philosophy of encouraging forks.
+
+ul
+    li 1000 tps
+    li uses LUA
+    li loyalty program providing passive income rewards
